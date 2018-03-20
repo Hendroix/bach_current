@@ -35,12 +35,12 @@ namespace Parkeringssimulering
         /// <param name="totalParkingSpaces">The total parking spaces.</param>
         /// <param name="freeSpaces">The free spaces.</param>
         /// <param name="takenSpaces">The taken spaces.</param>
-        public Parkeringspot(string name, int totalParkingSpaces, int freeSpaces, int takenSpaces)
+        public Parkeringspot(string name, int totalParkingSpaces, int takenSpaces)
         {
             this.name = name;
             this.totalParkingSpaces = totalParkingSpaces;
             this.takenSpaces = takenSpaces;
-            this.freeSpaces = totalParkingSpaces - takenSpaces;
+            freeSpaces = totalParkingSpaces - takenSpaces;
         }
     }
 }

@@ -21,9 +21,14 @@ namespace Parkeringssimulering
         /// </summary>
         public static ArrayList relatedParkingSpotsTuneVeienNorth, relatedParkingSpotsTuneVeienSouth, relatedParkingSpotsGralumVeienNorth, relatedParkingSpotsGralumVeienSouth, relatedParkingSpotsE6South, relatedParkingSpotsSykehusVeienNorth, relatedParkingSpotsSykehusVeienSouth = new ArrayList();
         /// <summary>
-        /// The related roads tune veien north
+        /// Array containing related road to their related roads.
         /// </summary>
         public static ArrayList relatedRoadsTuneVeienNorth, relatedRoadsTuneVeienSouth, relatedRoadsGralumVeienNorth, relatedRoadsGralumVeienSouth, relatedRoadsE6South, relatedRoadsSykehusVeienNorth, relatedRoadsSykehusVeienSouth = new ArrayList();
+
+        /// <summary>
+        /// The total parkingspots avaliable for all parkingspots.
+        /// </summary>
+        public static int totalParkingInspiria, totalParkingSuperland, totalParkingQuality, totalParkingKiwi, totalParkingPoliti, totalParkingCaverion, totalParkingK5;
 
         /// <summary>
         /// Defines the entry point of the application.
@@ -31,30 +36,95 @@ namespace Parkeringssimulering
         /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
+            //defining the amount of cars that the simulation should manage.
             maximumCars = 1200;
             arrivingCars = 0;
+            //Defining the total parkingspots for each parkingzone
+            totalParkingInspiria = 125;
+            totalParkingSuperland = 150;
+            totalParkingQuality = 115;
+            totalParkingKiwi = 110;
+            totalParkingPoliti = 85;
+            totalParkingCaverion = 30;
+            totalParkingK5 = 55;
 
 
-            Queue tuneVeienQueue = new Queue();
-            Queue grålumVeienQueue = new Queue();
+            //Trafic queues.
             Queue e6Queue = new Queue();
-            Queue sykehusVeienQueue = new Queue();
+            Queue tuneVeienQueueNorth = new Queue();
+            Queue tuneVeienQueueSouth = new Queue();
+            Queue grålumVeienQueueNorth = new Queue();
+            Queue grålumVeienQueueSouth = new Queue();
+            Queue sykehusVeienQueueNorth = new Queue();
+            Queue sykehusVeienQueueSouth = new Queue();
 
-            Parkeringspot inspiria = new Parkeringspot("Inspiria", 125, 125, 0);
-            Parkeringspot superland = new Parkeringspot("Superland", 150, 150, 0);
-            Parkeringspot quality = new Parkeringspot("Quality Hotell", 115, 115, 0);
-            Parkeringspot kiwi = new Parkeringspot("Kiwi", 110, 110, 0);
-            Parkeringspot politi = new Parkeringspot("Politihuset", 85, 85, 0);
-            Parkeringspot caverion = new Parkeringspot("Caverion", 30, 30, 0);
-            Parkeringspot k5 = new Parkeringspot("K5", 55, 55, 0);
+            //Parkingspots that are avaliable to park on. There are some descrepencies here because we need more parkingspots to meet the 1200 cars that are arriving in this simulation.
+            //Sondre are going to double check these numbers and update them to correct.
+            Parkeringspot inspiria = new Parkeringspot("Inspiria", totalParkingInspiria, 0);
+            Parkeringspot superland = new Parkeringspot("Superland", totalParkingSuperland, 0);
+            Parkeringspot quality = new Parkeringspot("Quality Hotell", totalParkingQuality, 0);
+            Parkeringspot kiwi = new Parkeringspot("Kiwi", totalParkingKiwi, 0);
+            Parkeringspot politi = new Parkeringspot("Politihuset", totalParkingPoliti, 0);
+            Parkeringspot caverion = new Parkeringspot("Caverion", totalParkingCaverion, 0);
+            Parkeringspot k5 = new Parkeringspot("K5", totalParkingK5, 0);
 
+            //ArrayLists to connect Relations, setting.
+            //Related parkingspots first in PRIORITIZED ORDER
+            //Tune veien North and South
+            relatedParkingSpotsTuneVeienNorth.Add(kiwi);
+            relatedParkingSpotsTuneVeienSouth.Add(kiwi);
+
+            //Gralumveien North and South
+            relatedParkingSpotsGralumVeienNorth.Add(politi);
+            relatedParkingSpotsGralumVeienSouth.Add(politi);
+
+            //E6 South
+            relatedParkingSpotsE6South.Add(null);
+
+            //Sykehusveien North
+            relatedParkingSpotsSykehusVeienNorth.Add(k5);
+            relatedParkingSpotsSykehusVeienNorth.Add(politi);
+            relatedParkingSpotsSykehusVeienNorth.Add(quality);
+            relatedParkingSpotsSykehusVeienNorth.Add(inspiria);
+
+            //Sykehusveien South
+            relatedParkingSpotsSykehusVeienSouth.Add(k5);
+            relatedParkingSpotsSykehusVeienSouth.Add(politi);
+            relatedParkingSpotsSykehusVeienSouth.Add(quality);
+            relatedParkingSpotsSykehusVeienSouth.Add(inspiria);
+
+            //Other Queues
+            relatedRoadsTuneVeienNorth.Add(tuneVeienQueueSouth);
+            relatedRoadsTuneVeienNorth.Add(grålumVeienQueueSouth);
+            relatedRoadsTuneVeienNorth.Add(sykehusVeienQueueNorth);
+
+            relatedRoadsTuneVeienSouth.Add(tuneVeienQueueNorth);
+
+            relatedRoadsGralumVeienNorth.Add(tuneVeienQueueSouth);
+            relatedRoadsGralumVeienNorth.Add(grålumVeienQueueSouth);
+            relatedRoadsGralumVeienNorth.Add(sykehusVeienQueueNorth);
+
+
+            relatedRoadsGralumVeienSouth.Add(grålumVeienQueueNorth);
+
+            relatedRoadsE6South.Add(tuneVeienQueueSouth);
+            relatedRoadsE6South.Add(grålumVeienQueueSouth);
+            relatedRoadsE6South.Add(sykehusVeienQueueNorth);
+
+            relatedRoadsSykehusVeienNorth.Add(sykehusVeienQueueSouth);
+
+            relatedRoadsSykehusVeienSouth.Add(tuneVeienQueueSouth);
+            relatedRoadsSykehusVeienSouth.Add(grålumVeienQueueSouth);
+            relatedRoadsSykehusVeienSouth.Add(sykehusVeienQueueNorth);
+
+            //Parking queues...
             ParkingQueue e6South = new ParkingQueue("E6", e6Queue, relatedRoadsE6South, relatedParkingSpotsE6South);
-            ParkingQueue tuneVeienNorth = new ParkingQueue("Tuneveien", tuneVeienQueue, relatedRoadsTuneVeienNorth, relatedParkingSpotsTuneVeienNorth);
-            ParkingQueue tuneVeienSouth = new ParkingQueue("Tuneveien", tuneVeienQueue, relatedRoadsTuneVeienSouth, relatedParkingSpotsTuneVeienSouth);
-            ParkingQueue gralumVeienNorth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienNorth, relatedParkingSpotsGralumVeienNorth);
-            ParkingQueue gralumVeienSouth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienSouth, relatedParkingSpotsGralumVeienSouth);
-            ParkingQueue sykehusVeienNorth = new ParkingQueue("Sykehusveien", sykehusVeienQueue, relatedRoadsSykehusVeienNorth, relatedParkingSpotsSykehusVeienNorth);
-            ParkingQueue sykehusVeienSouth = new ParkingQueue("Sykehusveien", sykehusVeienQueue, relatedRoadsSykehusVeienSouth, relatedParkingSpotsSykehusVeienSouth);
+            ParkingQueue tuneVeienNorth = new ParkingQueue("Tuneveien", tuneVeienQueueNorth, relatedRoadsTuneVeienNorth, relatedParkingSpotsTuneVeienNorth);
+            ParkingQueue tuneVeienSouth = new ParkingQueue("Tuneveien", tuneVeienQueueSouth, relatedRoadsTuneVeienSouth, relatedParkingSpotsTuneVeienSouth);
+            ParkingQueue gralumVeienNorth = new ParkingQueue("Grålumveien", grålumVeienQueueNorth, relatedRoadsGralumVeienNorth, relatedParkingSpotsGralumVeienNorth);
+            ParkingQueue gralumVeienSouth = new ParkingQueue("Grålumveien", grålumVeienQueueSouth, relatedRoadsGralumVeienSouth, relatedParkingSpotsGralumVeienSouth);
+            ParkingQueue sykehusVeienNorth = new ParkingQueue("Sykehusveien", sykehusVeienQueueNorth, relatedRoadsSykehusVeienNorth, relatedParkingSpotsSykehusVeienNorth);
+            ParkingQueue sykehusVeienSouth = new ParkingQueue("Sykehusveien", sykehusVeienQueueSouth, relatedRoadsSykehusVeienSouth, relatedParkingSpotsSykehusVeienSouth);
 
 
 
