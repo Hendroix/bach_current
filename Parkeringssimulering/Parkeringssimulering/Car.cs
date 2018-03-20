@@ -18,7 +18,7 @@ namespace Parkeringssimulering
         /// <summary>
         /// The destination
         /// </summary>
-        public Parkeringspot Destination;
+        public Parkingspot Destination;
         /// <summary>
         /// The arrival from
         /// </summary>
@@ -26,31 +26,44 @@ namespace Parkeringssimulering
         /// <summary>
         /// The time of arrival
         /// </summary>
-        public DateTime timeOfArrival;
+        public int timeOfQueuing;
         /// <summary>
         /// The time of parking
         /// </summary>
-        public DateTime timeOfParking;
+        public int timeOfParking;
         /// <summary>
         /// The queue spot
         /// </summary>
         public int queueSpot;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Car"/> class.
+        /// Initializes a new instance of the <see cref="Car" /> class.
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="destination">The destination.</param>
         /// <param name="arrivalFrom">The arrival from.</param>
-        /// <param name="timeOfArrival">The time of arrival.</param>
-        /// <param name="timeOfParking">The time of parking.</param>
-        public Car(int id, Parkeringspot destination, ParkingQueue arrivalFrom, DateTime timeOfArrival, DateTime timeOfParking)
+        public Car(int id, Parkingspot destination, ParkingQueue arrivalFrom)
         {
             this.id = id;
             Destination = destination;
             this.arrivalFrom = arrivalFrom;
-            this.timeOfArrival = timeOfArrival;
-            this.timeOfParking = timeOfParking;
+            this.timeOfQueuing = 0;
+        }
+        /// <summary>
+        /// Gets the time of parking.
+        /// </summary>
+        /// <returns></returns>
+        public int getTimeOfParking()
+        {
+            return timeOfParking;
+        }
+        /// <summary>
+        /// Adds the waiting time.
+        /// </summary>
+        /// <param name="time">The time.</param>
+        public void addWaitingTime(int time)
+        {
+            this.timeOfParking += time;
         }
     }
 }

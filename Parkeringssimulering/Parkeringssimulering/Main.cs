@@ -60,13 +60,13 @@ namespace Parkeringssimulering
 
             //Parkingspots that are avaliable to park on. There are some descrepencies here because we need more parkingspots to meet the 1200 cars that are arriving in this simulation.
             //Sondre are going to double check these numbers and update them to correct.
-            Parkeringspot inspiria = new Parkeringspot("Inspiria", totalParkingInspiria, 0);
-            Parkeringspot superland = new Parkeringspot("Superland", totalParkingSuperland, 0);
-            Parkeringspot quality = new Parkeringspot("Quality Hotell", totalParkingQuality, 0);
-            Parkeringspot kiwi = new Parkeringspot("Kiwi", totalParkingKiwi, 0);
-            Parkeringspot politi = new Parkeringspot("Politihuset", totalParkingPoliti, 0);
-            Parkeringspot caverion = new Parkeringspot("Caverion", totalParkingCaverion, 0);
-            Parkeringspot k5 = new Parkeringspot("K5", totalParkingK5, 0);
+            Parkingspot inspiria = new Parkingspot("Inspiria", totalParkingInspiria, 0);
+            Parkingspot superland = new Parkingspot("Superland", totalParkingSuperland, 0);
+            Parkingspot quality = new Parkingspot("Quality Hotell", totalParkingQuality, 0);
+            Parkingspot kiwi = new Parkingspot("Kiwi", totalParkingKiwi, 0);
+            Parkingspot politi = new Parkingspot("Politihuset", totalParkingPoliti, 0);
+            Parkingspot caverion = new Parkingspot("Caverion", totalParkingCaverion, 0);
+            Parkingspot k5 = new Parkingspot("K5", totalParkingK5, 0);
 
             //ArrayLists to connect Relations, setting.
             //Related parkingspots first in PRIORITIZED ORDER
@@ -137,9 +137,9 @@ namespace Parkeringssimulering
         /// <summary>
         /// Makes a new car.
         /// </summary>
-        static void makeNewCar()
+        static void makeNewCar(int id, Parkingspot destination, ParkingQueue arrivalFrom)
         {
-
+            Car car = new Car(id,destination, arrivalFrom);
         }
     }
 }
