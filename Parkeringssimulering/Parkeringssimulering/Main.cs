@@ -51,8 +51,8 @@ namespace Parkeringssimulering
             ParkingQueue e6South = new ParkingQueue("E6", e6Queue, relatedRoadsE6South, relatedParkingSpotsE6South);
             ParkingQueue tuneVeienNorth = new ParkingQueue("Tuneveien", tuneVeienQueue, relatedRoadsTuneVeienNorth, relatedParkingSpotsTuneVeienNorth);
             ParkingQueue tuneVeienSouth = new ParkingQueue("Tuneveien", tuneVeienQueue, relatedRoadsTuneVeienSouth, relatedParkingSpotsTuneVeienSouth);
-            ParkingQueue grålumVeienNorth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienNorth, relatedParkingSpotsGralumVeienNorth);
-            ParkingQueue grålumVeienSouth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienSouth, relatedParkingSpotsGralumVeienSouth);
+            ParkingQueue gralumVeienNorth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienNorth, relatedParkingSpotsGralumVeienNorth);
+            ParkingQueue gralumVeienSouth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienSouth, relatedParkingSpotsGralumVeienSouth);
             ParkingQueue sykehusVeienNorth = new ParkingQueue("Sykehusveien", sykehusVeienQueue, relatedRoadsSykehusVeienNorth, relatedParkingSpotsSykehusVeienNorth);
             ParkingQueue sykehusVeienSouth = new ParkingQueue("Sykehusveien", sykehusVeienQueue, relatedRoadsSykehusVeienSouth, relatedParkingSpotsSykehusVeienSouth);
 
@@ -65,7 +65,7 @@ namespace Parkeringssimulering
         }
 
         /// <summary>
-        /// Makes the new car.
+        /// Makes a new car.
         /// </summary>
         static void makeNewCar()
         {
@@ -73,8 +73,3 @@ namespace Parkeringssimulering
         }
     }
 }
-
-/*
- Car car1 = new Car(1, kiwi, tuneVeien, DateTime.Now, DateTime.Now, tuneVeienQueue.Count);
-            Car car2 = new Car(2, politi, grålumVeien, DateTime.Now, DateTime.Now, grålumVeienQueue.Count);
-            Car car3 = new Car(3, quality, e6, DateTime.Now, DateTime.Now, e6Queue.Count);
