@@ -1,0 +1,22 @@
+Inspiria: Antall parkeringsplasser: 125, 19% bruk innenfor tidsrommet Halden VGS.
+Superland-Sør: Antall parkeringplasser: 75, 20% bruk innenfor tidsrommet Halden VGS.
+Superland-Nord: Antall parkeringsplassser: 75, 7% bruk innenfor tidsrommet Halden VGS.
+Quality Hotell: Antall parkeringsplasser: 115, 62% bruk innenfor tidsrommet Halden VGS.
+Kiwi: Antall parkeringsplasser: 110, 14% bruk innenfor tidsrommet Halden VGS.
+Politihuset: Antall parkeringsplasser: 85, 79% bruk innenfor tidsrommet til Halden VGS.
+Caverion: Antall parkeringsplasser: 30, 57% bruk innenfor tidsrommet til Halden VGS.
+K5 bygget: Antall parkeringsser: 55, 61% bruk innenfor tidsrommet til Halden VGS.
+Totalt antallparkeringsplasser på område: 670 parkeringsplasser.
+
+Sted		Antall Parkeringplasser		Bruksgrad	Bruk av Bilister	Av totaltantall billister	Av totaltantall parkeringsplasser
+Inspiria		125			19 %			24			9 %				19 %
+Superland-Nord		75			20 %			15			6 %				11 %
+Superland-Sør		75			7 %			5			2 %				11 %
+Quality Hotell		115			62 %			71			27 %				17 %
+Kiwi			110			14 %			15			6 %				16 %
+Politihuset		85			79 %			67			25 %				13 %
+Caverion		30			57 %			17			6 %				4 %
+K5 bygget		55			61 %			34			13 %				8 %
+Totalt			670			40 %			267			100 %				100 %
+
+
