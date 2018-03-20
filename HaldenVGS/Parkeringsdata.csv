@@ -1,0 +1,64 @@
+Parkering	starttid	sluttid	El-bil?	02:00:00									
+parkering34	07:04:08	07:04:11	Ja										
+parkering8	06:51:05	07:07:03	Nei										
+parkering47	08:01:57	08:02:00	Nei										
+parkering46	07:05:47	08:02:01	Nei										
+parkering64	07:06:04	08:02:55	Nei										
+parkering63	07:06:06	08:03:12	Nei										
+parkering79	08:04:03	08:04:05	Nei										
+parkering35	07:04:10	09:02:01	Nei										
+parkering25	06:51:00	09:02:04	Nei										
+parkering60	08:03:17	09:02:37	Nei										
+parkering49	08:02:50	09:02:49	Nei										
+parkering53	07:06:02	09:03:09	Nei										
+parkering65	08:02:53	09:03:20	Nei										
+													
+Parkering	starttid	sluttid	El-bil?	tidbrukt									
+													
+													
+parkering46	07:05:47	08:02:01	Nei	00:56:14									
+parkering64	07:06:04	08:02:55	Nei	00:56:51									
+parkering63	07:06:06	08:03:12	Nei	00:57:06									
+parkering79	08:04:03	08:04:05	Nei	00:00:02									
+parkering34	09:04:08	09:04:11	Ja	00:00:03									
+parkering8	08:51:05	09:07:03	Nei	00:15:58									
+parkering46	09:05:47	10:02:01	Nei	00:56:14									
+parkering64	09:06:04	10:02:55	Nei	00:56:51									
+parkering63	09:06:06	10:03:12	Nei	00:57:06									
+parkering34	09:04:08	09:04:11	Nei	00:00:03									
+parkering8	08:51:05	09:07:03	Nei	00:15:58									
+parkering47	10:01:57	10:02:00	Nei	00:00:03									
+parkering46	09:05:47	10:02:01	Nei	00:56:14									
+parkering64	09:06:04	10:02:55	Nei	00:56:51									
+parkering63	09:06:06	10:03:12	Nei	00:57:06									
+parkering79	10:04:03	10:04:05	Nei	00:00:02									
+parkering35	09:04:10	11:02:01	Nei	01:57:51									
+parkering25	08:51:00	11:02:04	Nei	02:11:04									
+parkering60	10:03:17	11:02:37	Nei	00:59:20									
+parkering49	10:02:50	11:02:49	Nei	00:59:59									
+parkering53	09:06:02	11:03:09	Nei	01:57:07									
+parkering65	10:02:53	11:03:20	Nei	01:00:27									
+parkering50	13:08:02	14:04:57	Nei	00:56:55					02:00:00	parkering50	11:08:02	12:04:57	Nei
+parkering51	13:08:01	14:05:00	Nei	00:56:59						parkering51	11:08:01	12:05:00	Nei
+parkering55	13:07:56	14:05:08	Nei	00:57:12						parkering55	11:07:56	12:05:08	Nei
+parkering61	13:08:05	14:05:25	Nei	00:57:20						parkering61	11:08:05	12:05:25	Nei
+parkering71	13:09:40	14:05:53	Nei	00:56:13						parkering71	11:09:40	12:05:53	Nei
+parkering109	13:09:55	14:05:55	Nei	00:56:00						parkering109	11:09:55	12:05:55	Nei
+parkering91	13:10:00	14:06:01	Nei	00:56:01						parkering91	11:10:00	12:06:01	Nei
+parkering73	13:09:37	14:06:07	Nei	00:56:30						parkering73	11:09:37	12:06:07	Nei
+parkering74	13:09:35	14:06:10	Nei	00:56:35						parkering74	11:09:35	12:06:10	Nei
+parkering76	13:09:31	14:06:19	Nei	00:56:48						parkering76	11:09:31	12:06:19	Nei
+parkering81	13:09:18	14:06:37	Nei	00:57:19						parkering81	11:09:18	12:06:37	Nei
+parkering98	13:10:31	14:06:48	Nei	00:56:17						parkering98	11:10:31	12:06:48	Nei
+parkering95	13:10:08	14:06:57	Nei	00:56:49						parkering95	11:10:08	12:06:57	Nei
+parkering94	13:10:06	14:06:59	Nei	00:56:53						parkering94	11:10:06	12:06:59	Nei
+parkering93	13:10:05	14:07:00	Nei	00:56:55						parkering93	11:10:05	12:07:00	Nei
+parkering91	14:07:10	14:07:13	Nei	00:00:03						parkering91	12:07:10	12:07:13	Nei
+parkering109	14:07:18	14:07:21	Nei	00:00:03						parkering109	12:07:18	12:07:21	Nei
+parkering1	13:10:49	14:07:28	Nei	00:56:39						parkering1	11:10:49	12:07:28	Nei
+parkering7	13:11:09	14:07:43	Nei	00:56:34						parkering7	11:11:09	12:07:43	Nei
+parkering13	13:11:18	14:08:14	Nei	00:56:56						parkering13	11:11:18	12:08:14	Nei
+parkering17	13:11:23	14:08:17	Nei	00:56:54						parkering17	11:11:23	12:08:17	Nei
+					Antall timer brukt	36:06:25							
+					Maksimalt antall tid brukt gjennom 5timer	545							
+					Antall prosent av parkeringen brukt	6,605504587							
