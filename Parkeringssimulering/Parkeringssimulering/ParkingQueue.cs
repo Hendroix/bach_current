@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +12,14 @@ namespace Parkeringssimulering
         public String name;
         public Queue carsInQueue = new Queue();
         public Parkeringspot goesToPark;
+        public ArrayList parkingSpots = new ArrayList();
 
-        public ParkingQueue(string name, Queue carsInQueue, Parkeringspot goesToPark)
+        public ParkingQueue(string name, Queue carsInQueue, Parkeringspot goesToPark, ArrayList parkingSpots)
         {
             this.name = name;
             this.carsInQueue = carsInQueue;
             this.goesToPark = goesToPark;
+            this.parkingSpots = parkingSpots;
         }
     }
 }

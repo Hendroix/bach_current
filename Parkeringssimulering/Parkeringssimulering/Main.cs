@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,15 @@ namespace Parkeringssimulering
 {
     public class main
     {
+        public static int maximumCars, arrivingCars;
+        public static ArrayList parkingSpots = new ArrayList();
 
         static void Main(string[] args)
         {
+            maximumCars = 1200;
+            arrivingCars = 0;
+
+
             Queue tuneVeienQueue = new Queue();
             Queue grålumVeienQueue = new Queue();
             Queue e6Queue = new Queue();
@@ -30,20 +36,22 @@ namespace Parkeringssimulering
             ParkingQueue e6 = new ParkingQueue("E6", e6Queue, quality);
             ParkingQueue sykehusVeien = new ParkingQueue("Sykehusveien", sykehusVeienQueue, k5);
 
-            Car car1 = new Car(1, kiwi, tuneVeien, DateTime.Now, DateTime.Now, tuneVeienQueue.Count);
-            Car car2 = new Car(2, politi, grålumVeien, DateTime.Now, DateTime.Now, grålumVeienQueue.Count);
-            Car car3 = new Car(3, quality, e6, DateTime.Now, DateTime.Now, e6Queue.Count);
+            
 
-            tuneVeienQueue.Enqueue(car1);
-            grålumVeienQueue.Enqueue(car2);
-            e6Queue.Enqueue(car3);
+            while(arrivingCars <= maximumCars)
+            {
+                Car car = new Car(arrivingCars, );
+            }
+        }
 
-            Console.WriteLine(tuneVeienQueue.Count);
-            Console.WriteLine(grålumVeienQueue.Count);
-            Console.WriteLine(e6Queue.Count);
-
-            Console.ReadKey();
+       static void makeNewCar()
+        {
 
         }
     }
 }
+
+/*
+ Car car1 = new Car(1, kiwi, tuneVeien, DateTime.Now, DateTime.Now, tuneVeienQueue.Count);
+            Car car2 = new Car(2, politi, grålumVeien, DateTime.Now, DateTime.Now, grålumVeienQueue.Count);
+            Car car3 = new Car(3, quality, e6, DateTime.Now, DateTime.Now, e6Queue.Count);

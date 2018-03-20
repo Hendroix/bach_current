@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,18 +11,17 @@ namespace Parkeringssimulering
         public int id;
         public Parkeringspot Destination;
         public ParkingQueue arrivalFrom;
-        public DateTime timeOfQueue;
+        public DateTime timeOfArrival;
         public DateTime timeOfParking;
         public int queueSpot;
 
-        public Car(int id, Parkeringspot destination, ParkingQueue arrivalFrom, DateTime timeOfQueue, DateTime timeOfParking, int queueSpot)
+        public Car(int id, Parkeringspot destination, ParkingQueue arrivalFrom, DateTime timeOfArrival, DateTime timeOfParking)
         {
             this.id = id;
             Destination = destination;
             this.arrivalFrom = arrivalFrom;
-            this.timeOfQueue = timeOfQueue;
+            this.timeOfArrival = timeOfArrival;
             this.timeOfParking = timeOfParking;
-            this.queueSpot = queueSpot;
         }
     }
 }
