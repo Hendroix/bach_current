@@ -11,15 +11,15 @@ namespace Parkeringssimulering
     {
         public String name;
         public Queue carsInQueue = new Queue();
-        public Parkeringspot goesToPark;
-        public ArrayList parkingSpots = new ArrayList();
+        public ArrayList relatedRoads = new ArrayList();
+        public ArrayList relatedParkingSpots = new ArrayList();
 
-        public ParkingQueue(string name, Queue carsInQueue, Parkeringspot goesToPark, ArrayList parkingSpots)
+        public ParkingQueue(string name, Queue carsInQueue, ArrayList relatedRoads, ArrayList parkingSpots)
         {
             this.name = name;
             this.carsInQueue = carsInQueue;
-            this.goesToPark = goesToPark;
-            this.parkingSpots = parkingSpots;
+            this.relatedRoads = relatedRoads;
+            this.relatedParkingSpots = parkingSpots;
         }
     }
 }

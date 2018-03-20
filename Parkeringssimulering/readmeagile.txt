@@ -12,3 +12,5 @@ Liste over hva som skal være inkludert i simuleringsmodellen.
 -	VIKTIG og få på plass at dersom det er fult på Ønsket parkeringsplass i BIL klassen må neste "nærmeste" finnes og settes som ny "Ønsket" Lokalisasjon.
 -	Dersom parkeringsplassen er FULL! Må det taes inn i beregning at BILER kjører til ØNSKET FØRST også flytter seg til neste "Nærmeste" parkeringsplass.
 
+
+-	Ctrl + Shift + D to ghostDoc Auto comment. Do this often and always.

@@ -10,7 +10,8 @@ namespace Parkeringssimulering
     public class main
     {
         public static int maximumCars, arrivingCars;
-        public static ArrayList parkingSpots = new ArrayList();
+        public static ArrayList relatedParkingSpotsTuneVeienNorth, relatedParkingSpotsTuneVeienSouth, relatedParkingSpotsGralumVeienNorth, relatedParkingSpotsGralumVeienSouth, relatedParkingSpotsE6South, relatedParkingSpotsSykehusVeienNorth, relatedParkingSpotsSykehusVeienSouth = new ArrayList();
+        public static ArrayList relatedRoadsTuneVeienNorth, relatedRoadsTuneVeienSouth, relatedRoadsGralumVeienNorth, relatedRoadsGralumVeienSouth, relatedRoadsE6South, relatedRoadsSykehusVeienNorth, relatedRoadsSykehusVeienSouth = new ArrayList();
 
         static void Main(string[] args)
         {
@@ -31,16 +32,19 @@ namespace Parkeringssimulering
             Parkeringspot caverion = new Parkeringspot("Caverion", 30, 30, 0);
             Parkeringspot k5 = new Parkeringspot("K5", 55, 55, 0);
 
-            ParkingQueue tuneVeien = new ParkingQueue("Tuneveien", tuneVeienQueue, kiwi);
-            ParkingQueue grålumVeien = new ParkingQueue("Grålumveien", grålumVeienQueue, politi);
-            ParkingQueue e6 = new ParkingQueue("E6", e6Queue, quality);
-            ParkingQueue sykehusVeien = new ParkingQueue("Sykehusveien", sykehusVeienQueue, k5);
+            ParkingQueue e6South = new ParkingQueue("E6", e6Queue, relatedRoadsE6South, relatedParkingSpotsE6South);
+            ParkingQueue tuneVeienNorth = new ParkingQueue("Tuneveien", tuneVeienQueue, relatedRoadsTuneVeienNorth, relatedParkingSpotsTuneVeienNorth);
+            ParkingQueue tuneVeienSouth = new ParkingQueue("Tuneveien", tuneVeienQueue, relatedRoadsTuneVeienSouth, relatedParkingSpotsTuneVeienSouth);
+            ParkingQueue grålumVeienNorth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienNorth, relatedParkingSpotsGralumVeienNorth);
+            ParkingQueue grålumVeienSouth = new ParkingQueue("Grålumveien", grålumVeienQueue, relatedRoadsGralumVeienSouth, relatedParkingSpotsGralumVeienSouth);
+            ParkingQueue sykehusVeienNorth = new ParkingQueue("Sykehusveien", sykehusVeienQueue, relatedRoadsSykehusVeienNorth, relatedParkingSpotsSykehusVeienNorth);
+            ParkingQueue sykehusVeienSouth = new ParkingQueue("Sykehusveien", sykehusVeienQueue, relatedRoadsSykehusVeienSouth, relatedParkingSpotsSykehusVeienSouth);
 
-            
 
-            while(arrivingCars <= maximumCars)
+
+            while (arrivingCars <= maximumCars)
             {
-                Car car = new Car(arrivingCars, );
+                //Car car = new Car(arrivingCars, );
             }
         }
 
