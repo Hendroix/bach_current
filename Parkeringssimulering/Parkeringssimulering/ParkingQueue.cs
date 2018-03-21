@@ -43,5 +43,6 @@ namespace Parkeringssimulering
             this.relatedRoads = relatedRoads;
             this.relatedParkingSpots = parkingSpots;
         }
+
     }
 }

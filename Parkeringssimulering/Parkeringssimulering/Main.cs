@@ -32,6 +32,7 @@ namespace Parkeringssimulering
         /// </summary>
         public static Parkingspot inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet;
         private static int counldtFindParking;
+        public static Random random;
 
         /// <summary>
         /// Defines the entry point of the application.
@@ -67,7 +68,7 @@ namespace Parkeringssimulering
             tuneSenter = new Parkingspot("Tune Senter", 115, 0);
             adeccoAndIf = new Parkingspot("Adecco and If", 110, 0);
             fagforbundet = new Parkingspot("Fagforbundet", 110, 0);
-            Parkingspot[] parkingspotArray = { inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet};
+
 
             //Parking queues...
             ParkingQueue e6South = new ParkingQueue("E6", e6Queue, relatedRoadsE6South, relatedParkingSpotsE6South);
@@ -78,7 +79,8 @@ namespace Parkeringssimulering
             ParkingQueue sykehusVeienNorth = new ParkingQueue("Sykehusveien", sykehusVeienQueueNorth, relatedRoadsSykehusVeienNorth, relatedParkingSpotsSykehusVeienNorth);
             ParkingQueue sykehusVeienSouth = new ParkingQueue("Sykehusveien", sykehusVeienQueueSouth, relatedRoadsSykehusVeienSouth, relatedParkingSpotsSykehusVeienSouth);
 
-            
+            Parkingspot[] parkingspotArray = { inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet };
+            ParkingQueue[] parkingQueueArray = { e6South, tuneVeienNorth, gralumVeienNorth, sykehusVeienSouth };
 
 
             foreach (Parkingspot p in parkingspotArray)
@@ -93,30 +95,32 @@ namespace Parkeringssimulering
 
             madeCar = 0;
             int incommingCars = 1200;
-            CalculateDestination(incommingCars, madeCar);
+            CalculateDestination(incommingCars, madeCar, parkingQueueArray);
 
-            freeSpaces = 0;
+
             takenSpaces = 0;
 
             foreach (Parkingspot p in parkingspotArray)
             {
                 Console.WriteLine(p.name + ": " + p.takenSpaces + "/" + p.totalParkingSpaces);
+                takenSpaces += p.takenSpaces;
             }
             Console.WriteLine("Totalt antall parkeringsplasser:          " + maxParkingspots);
-            Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + freeSpaces);
+            Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + (freeSpaces - takenSpaces));
             Console.WriteLine("Totalt antall opptatte parkeringsplasser: " + takenSpaces);
 
 
             Console.ReadKey();
 
         }
-        public static void CalculateDestination(int traficAmount, int traficCounter)
+        public static void CalculateDestination(int traficAmount, int traficCounter, ParkingQueue[] parkingQueue)
         {
             generateRandomNumbers();
             Console.WriteLine("Calculating Desinations");
             while (traficAmount > madeCar)
             {
-                makeCar(randomArray[madeCar]);
+                
+                makeCar(randomArray[madeCar], getQueue(parkingQueue));
             }
         }
         static void generateRandomNumbers()
@@ -131,63 +135,97 @@ namespace Parkeringssimulering
             int newRandom = s_Random.Next(0, 100);
             return newRandom;
         }
-        private static void makeCar(int chance)
+        private static void makeCar(int chance, ParkingQueue queuespot)
         {
             int parkingChance = chance;
-
+            
             if (parkingChance <= 9 && inspiria.Free())
             {
                 inspiria.addTakenSpaces();
+
+                Car car = new Car(madeCar, inspiria, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: "  + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 12 && inspiriaBak.Free())
             {
                 inspiriaBak.addTakenSpaces();
+                Car car = new Car(madeCar, inspiriaBak, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 27 && superland.Free())
             {
                 superland.addTakenSpaces();
+                Car car = new Car(madeCar, superland, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 42 && quality.Free())
             {
                 quality.addTakenSpaces();
+                Car car = new Car(madeCar, quality, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 57 && kiwi.Free())
             {
                 kiwi.addTakenSpaces();
+                Car car = new Car(madeCar, kiwi, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 69 && politi.Free())
             {
-                kiwi.addTakenSpaces();
+                politi.addTakenSpaces();
+                Car car = new Car(madeCar, politi, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 73 && caverion.Free())
             {
                 caverion.addTakenSpaces();
+                Car car = new Car(madeCar, caverion, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 76 && k5.Free())
             {
                 k5.addTakenSpaces();
+                Car car = new Car(madeCar, k5, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 84 && tuneSenter.Free())
             {
                 tuneSenter.addTakenSpaces();
+                Car car = new Car(madeCar, tuneSenter, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 92 && adeccoAndIf.Free())
             {
                 adeccoAndIf.addTakenSpaces();
+                Car car = new Car(madeCar, adeccoAndIf, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else if (parkingChance <= 100 && fagforbundet.Free())
             {
                 fagforbundet.addTakenSpaces();
+                Car car = new Car(madeCar, fagforbundet, queuespot);
+                placeInQueue(queuespot, car);
+                Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                 madeCar++;
             }
             else
@@ -195,56 +233,89 @@ namespace Parkeringssimulering
                 if (inspiria.Free())
                 {
                     inspiria.addTakenSpaces();
+                    Car car = new Car(madeCar, inspiria, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (inspiriaBak.Free())
                 {
                     inspiriaBak.addTakenSpaces();
+                    Car car = new Car(madeCar, inspiriaBak, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (superland.Free())
                 {
                     superland.addTakenSpaces();
+                    Car car = new Car(madeCar, superland, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (quality.Free())
                 {
                     quality.addTakenSpaces();
+                    Car car = new Car(madeCar, quality, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (kiwi.Free())
                 {
                     kiwi.addTakenSpaces();
+                    Car car = new Car(madeCar, kiwi, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (politi.Free())
                 {
-                    kiwi.addTakenSpaces();
+                    politi.addTakenSpaces();
+                    Car car = new Car(madeCar, politi, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (caverion.Free())
                 {
                     caverion.addTakenSpaces();
+                    Car car = new Car(madeCar, caverion, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (k5.Free())
                 {
                     k5.addTakenSpaces();
+                    Car car = new Car(madeCar, k5, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (tuneSenter.Free())
                 {
                     tuneSenter.addTakenSpaces();
+                    Car car = new Car(madeCar, tuneSenter, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (adeccoAndIf.Free())
                 {
                     adeccoAndIf.addTakenSpaces();
+                    Car car = new Car(madeCar, adeccoAndIf, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else if (fagforbundet.Free())
                 {
                     fagforbundet.addTakenSpaces();
+                    Car car = new Car(madeCar, fagforbundet, queuespot);
+                    placeInQueue(queuespot, car);
+                    Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     madeCar++;
                 }
                 else
@@ -254,6 +325,19 @@ namespace Parkeringssimulering
                 }
             }
         }
+
+        private static void placeInQueue(ParkingQueue queuespot, Car car) {
+            queuespot.carsInQueue.Enqueue(car);
+        }
+        private static ParkingQueue getQueue(ParkingQueue[] parkingQueueArray)
+        {
+            random = new Random();
+            int chance = random.Next(0, 3);
+            ParkingQueue queuespot = parkingQueueArray[chance];
+            return queuespot;
+
+        }
+
     }
     //ArrayLists to connect Relations, setting.
     //Related parkingspots first in PRIORITIZED ORDER

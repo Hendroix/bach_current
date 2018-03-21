@@ -77,7 +77,7 @@ namespace Parkeringssimulering
         }
         public bool Free()
         {
-            if (freeSpaces > 0)
+            if (takenSpaces < totalParkingSpaces)
                 return true;
             else
                 return false;
