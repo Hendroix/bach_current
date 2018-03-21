@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,11 +30,15 @@ namespace Parkeringssimulering
         public int freeSpaces;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Parkingspot"/> class.
+        /// The list of cars
+        /// </summary>
+        public ArrayList listOfCars = new ArrayList();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Parkingspot" /> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="totalParkingSpaces">The total parking spaces.</param>
-        /// <param name="freeSpaces">The free spaces.</param>
         /// <param name="takenSpaces">The taken spaces.</param>
         public Parkingspot(string name, int totalParkingSpaces, int takenSpaces)
         {
@@ -41,6 +46,30 @@ namespace Parkeringssimulering
             this.totalParkingSpaces = totalParkingSpaces;
             this.takenSpaces = takenSpaces;
             freeSpaces = totalParkingSpaces - takenSpaces;
+        }
+        /// <summary>
+        /// Gets the taken spaces.
+        /// </summary>
+        /// <returns></returns>
+        public int getTakenSpaces()
+        {
+            return takenSpaces;
+        }
+        /// <summary>
+        /// Adds the taken spaces.
+        /// </summary>
+        public void addTakenSpaces()
+        {
+            if (freeSpaces > 0)
+            this.takenSpaces++;
+        }
+        /// <summary>
+        /// Gets the free spaces.
+        /// </summary>
+        /// <returns></returns>
+        public int getFreeSpaces()
+        {
+            return freeSpaces;
         }
     }
 }
