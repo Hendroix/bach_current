@@ -22,14 +22,20 @@ Totalt			670			40 %			267			100 %				100 %
 
 Vår telling av plasser:
 Sted		Antall Parkeringplasser		
-Inspiria		125			
-Superland-Nord		75			
-Superland-Sør		75			
-Quality Hotell		115			
-Kiwi			110			
+Inspiria		125
+Inspiria Bak		40	
+Superland		200			
+Quality Hotell		205			
+Kiwi			210			
 Politihuset		85			
-Caverion		30			
-K5 bygget		55		
+Caverion		45			
+K5 bygget		40
+Tune Senter		115
+Rema 1000		75
+Adecco og If		110
+Fagforbundet 		110
+Utenfor rundt politiet	85
+		
 Totalt			670
 
 
