@@ -13,9 +13,9 @@ namespace Parkeringssimulering
     public class main
     {
         /// <summary>
-        /// The maximum cars
+        /// The maximum cars 
         /// </summary>
-        public static int maximumCars, arrivingCars;
+        public static int maximumCars, arrivingCars, parkedCars;
         /// <summary>
         /// The related parking spots tune veien north
         /// </summary>
@@ -28,7 +28,7 @@ namespace Parkeringssimulering
         /// <summary>
         /// The total parkingspots avaliable for all parkingspots.
         /// </summary>
-        public static int totalParkingInspiria, totalParkingSuperland, totalParkingQuality, totalParkingKiwi, totalParkingPoliti, totalParkingCaverion, totalParkingK5;
+        public static int totalParkingInspiria, totalParkingInspiriaBak, totalParkingSuperland, totalParkingQuality, totalParkingKiwi, totalParkingPoliti, totalParkingCaverion, totalParkingK5, totalParkingTuneSenter, totalParkingAdeccoAndIf, totalParkingFagforbundet;
 
         /// <summary>
         /// Defines the entry point of the application.
@@ -39,14 +39,19 @@ namespace Parkeringssimulering
             //defining the amount of cars that the simulation should manage.
             maximumCars = 1200;
             arrivingCars = 0;
+
             //Defining the total parkingspots for each parkingzone
             totalParkingInspiria = 125;
-            totalParkingSuperland = 150;
-            totalParkingQuality = 115;
+            totalParkingInspiriaBak = 40;
+            totalParkingSuperland = 200;
+            totalParkingQuality = 205;
             totalParkingKiwi = 110;
-            totalParkingPoliti = 85;
-            totalParkingCaverion = 30;
-            totalParkingK5 = 55;
+            totalParkingPoliti = 170;
+            totalParkingCaverion = 45;
+            totalParkingK5 = 40;
+            totalParkingTuneSenter = 115;
+            totalParkingAdeccoAndIf = 110;
+            totalParkingFagforbundet = 110;
 
 
             //Trafic queues.
@@ -61,12 +66,16 @@ namespace Parkeringssimulering
             //Parkingspots that are avaliable to park on. There are some descrepencies here because we need more parkingspots to meet the 1200 cars that are arriving in this simulation.
             //Sondre are going to double check these numbers and update them to correct.
             Parkingspot inspiria = new Parkingspot("Inspiria", totalParkingInspiria, 0);
+            Parkingspot inspiriaBak = new Parkingspot("Inspiria Bak", totalParkingInspiriaBak, 0);
             Parkingspot superland = new Parkingspot("Superland", totalParkingSuperland, 0);
             Parkingspot quality = new Parkingspot("Quality Hotell", totalParkingQuality, 0);
             Parkingspot kiwi = new Parkingspot("Kiwi", totalParkingKiwi, 0);
             Parkingspot politi = new Parkingspot("Politihuset", totalParkingPoliti, 0);
             Parkingspot caverion = new Parkingspot("Caverion", totalParkingCaverion, 0);
             Parkingspot k5 = new Parkingspot("K5", totalParkingK5, 0);
+            Parkingspot tuneSenter = new Parkingspot("Tune Senter", totalParkingTuneSenter, 0);
+            Parkingspot adeccoAndIf = new Parkingspot("Adecco and If", totalParkingAdeccoAndIf, 0);
+            Parkingspot fagforbundet = new Parkingspot("Fagforbundet", totalParkingFagforbundet, 0);
 
             //ArrayLists to connect Relations, setting.
             //Related parkingspots first in PRIORITIZED ORDER
@@ -76,7 +85,13 @@ namespace Parkeringssimulering
 
             //Gralumveien North and South
             relatedParkingSpotsGralumVeienNorth.Add(politi);
+            relatedParkingSpotsGralumVeienNorth.Add(tuneSenter);
+            relatedParkingSpotsGralumVeienNorth.Add(adeccoAndIf);
+            relatedParkingSpotsGralumVeienNorth.Add(fagforbundet);
             relatedParkingSpotsGralumVeienSouth.Add(politi);
+            relatedParkingSpotsGralumVeienSouth.Add(tuneSenter);
+            relatedParkingSpotsGralumVeienSouth.Add(adeccoAndIf);
+            relatedParkingSpotsGralumVeienSouth.Add(fagforbundet);
 
             //E6 South
             relatedParkingSpotsE6South.Add(null);
@@ -86,33 +101,43 @@ namespace Parkeringssimulering
             relatedParkingSpotsSykehusVeienNorth.Add(politi);
             relatedParkingSpotsSykehusVeienNorth.Add(quality);
             relatedParkingSpotsSykehusVeienNorth.Add(inspiria);
+            relatedParkingSpotsSykehusVeienNorth.Add(superland);
+            relatedParkingSpotsSykehusVeienNorth.Add(tuneSenter);
+            relatedParkingSpotsSykehusVeienNorth.Add(adeccoAndIf);
+            relatedParkingSpotsSykehusVeienNorth.Add(inspiriaBak);
+            relatedParkingSpotsSykehusVeienNorth.Add(fagforbundet);
 
             //Sykehusveien South
-            relatedParkingSpotsSykehusVeienSouth.Add(k5);
-            relatedParkingSpotsSykehusVeienSouth.Add(politi);
-            relatedParkingSpotsSykehusVeienSouth.Add(quality);
-            relatedParkingSpotsSykehusVeienSouth.Add(inspiria);
+            relatedParkingSpotsSykehusVeienNorth.Add(k5);
+            relatedParkingSpotsSykehusVeienNorth.Add(politi);
+            relatedParkingSpotsSykehusVeienNorth.Add(quality);
+            relatedParkingSpotsSykehusVeienNorth.Add(inspiria);
+            relatedParkingSpotsSykehusVeienNorth.Add(superland);
+            relatedParkingSpotsSykehusVeienNorth.Add(tuneSenter);
+            relatedParkingSpotsSykehusVeienNorth.Add(adeccoAndIf);
+            relatedParkingSpotsSykehusVeienNorth.Add(inspiriaBak);
+            relatedParkingSpotsSykehusVeienNorth.Add(fagforbundet);
 
             //Other Queues
+            //TuneVeienNorth
             relatedRoadsTuneVeienNorth.Add(tuneVeienQueueSouth);
             relatedRoadsTuneVeienNorth.Add(grålumVeienQueueSouth);
             relatedRoadsTuneVeienNorth.Add(sykehusVeienQueueNorth);
-
+            //TuneVeienSouth
             relatedRoadsTuneVeienSouth.Add(tuneVeienQueueNorth);
-
+            //GralumveienNorth
             relatedRoadsGralumVeienNorth.Add(tuneVeienQueueSouth);
             relatedRoadsGralumVeienNorth.Add(grålumVeienQueueSouth);
             relatedRoadsGralumVeienNorth.Add(sykehusVeienQueueNorth);
-
-
+            //GralumVeienSouth
             relatedRoadsGralumVeienSouth.Add(grålumVeienQueueNorth);
-
+            //E6South
             relatedRoadsE6South.Add(tuneVeienQueueSouth);
             relatedRoadsE6South.Add(grålumVeienQueueSouth);
             relatedRoadsE6South.Add(sykehusVeienQueueNorth);
-
+            //SykehusVeienNorth
             relatedRoadsSykehusVeienNorth.Add(sykehusVeienQueueSouth);
-
+            //SykehusVeienSouth
             relatedRoadsSykehusVeienSouth.Add(tuneVeienQueueSouth);
             relatedRoadsSykehusVeienSouth.Add(grålumVeienQueueSouth);
             relatedRoadsSykehusVeienSouth.Add(sykehusVeienQueueNorth);
