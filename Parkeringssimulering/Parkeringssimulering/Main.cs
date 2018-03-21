@@ -39,6 +39,8 @@ namespace Parkeringssimulering
             //defining the amount of cars that the simulation should manage.
             maximumCars = 1200;
             arrivingCars = 0;
+            parkedCars = 1000;
+
 
             //Defining the total parkingspots for each parkingzone
             totalParkingInspiria = 125;
