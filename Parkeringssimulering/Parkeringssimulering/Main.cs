@@ -153,7 +153,7 @@ namespace Parkeringssimulering
 
 
 
-            while (arrivingCars <= maximumCars)
+            while (arrivingCars <= maximumCars && parkedCars >= maximumCars)
             {
                 //Car car = new Car(arrivingCars, );
             }
