@@ -14,14 +14,14 @@ namespace Code_Tester
 
         public static Random s_Random = new Random();
 
-        public static int parkingChance, parkedCars, maxParkingSpots, counldtFindParking;
+        public static int parkingChance, parkedCars, maxParkingSpots, counldtFindParking, incommingCars;
         public static int[] randomArray = new int[10000];
 
-        public static void CalculateDestination()
+        public static void CalculateDestination(int traficAmount, int traficCounter)
         {
             generateRandomNumbers();
 
-            while (maxParkingSpots > parkedCars)
+            while (traficAmount > parkedCars)
             {
                 makeAndParkCar(randomArray[parkedCars]);
             }
@@ -182,19 +182,11 @@ namespace Code_Tester
             parkedCars = 0;
             counldtFindParking = 0;
             maxParkingSpots = 1370;
-            CalculateDestination();
+            incommingCars = 1370;
+            CalculateDestination(incommingCars, parkedCars);
 
             PrintStats();
             Console.ReadKey();
-        }
-        static bool checkParkedCars()
-        {
-            if (parkedCars >= 1370)
-            {
-                return true;
-
-            }
-            return false;
         }
         static int getRandomNumber()
         {

@@ -23,11 +23,11 @@ namespace Parkeringssimulering
         /// <summary>
         /// The related roads
         /// </summary>
-        public ArrayList relatedRoads = new ArrayList();
+        public List<Queue> relatedRoads = new List<Queue>();
         /// <summary>
         /// The related parking spots
         /// </summary>
-        public ArrayList relatedParkingSpots = new ArrayList();
+        public List<Parkingspot> relatedParkingSpots = new List<Parkingspot>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ParkingQueue"/> class.
@@ -36,7 +36,7 @@ namespace Parkeringssimulering
         /// <param name="carsInQueue">The cars in queue.</param>
         /// <param name="relatedRoads">The related roads.</param>
         /// <param name="parkingSpots">The parking spots.</param>
-        public ParkingQueue(string name, Queue carsInQueue, ArrayList relatedRoads, ArrayList parkingSpots)
+        public ParkingQueue(string name, Queue carsInQueue, List<Queue> relatedRoads, List<Parkingspot> parkingSpots)
         {
             this.name = name;
             this.carsInQueue = carsInQueue;

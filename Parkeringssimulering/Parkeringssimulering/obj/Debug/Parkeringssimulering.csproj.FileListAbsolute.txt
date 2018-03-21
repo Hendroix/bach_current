@@ -5,3 +5,10 @@ C:\Users\Master\source\repos\Parkeringssimulering\Parkeringssimulering\obj\Debug
 C:\Users\Master\source\repos\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.csproj.CoreCompileInputs.cache
 C:\Users\Master\source\repos\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.exe
 C:\Users\Master\source\repos\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.pdb
+C:\Users\Henrik\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\bin\Debug\Parkeringssimulering.exe.config
+C:\Users\Henrik\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\bin\Debug\Parkeringssimulering.exe
+C:\Users\Henrik\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\bin\Debug\Parkeringssimulering.pdb
+C:\Users\Henrik\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.csprojResolveAssemblyReference.cache
+C:\Users\Henrik\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.csproj.CoreCompileInputs.cache
+C:\Users\Henrik\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.exe
+C:\Users\Henrik\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.pdb
