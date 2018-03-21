@@ -5,3 +5,10 @@ c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.cspro
 c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.csproj.CoreCompileInputs.cache
 c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.exe
 c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.pdb
+C:\Users\Henrik\Documents\GitHub\bach_current\Code Tester\Code Tester\bin\Debug\Code Tester.exe.config
+C:\Users\Henrik\Documents\GitHub\bach_current\Code Tester\Code Tester\bin\Debug\Code Tester.exe
+C:\Users\Henrik\Documents\GitHub\bach_current\Code Tester\Code Tester\bin\Debug\Code Tester.pdb
+C:\Users\Henrik\Documents\GitHub\bach_current\Code Tester\Code Tester\obj\Debug\Code Tester.csprojResolveAssemblyReference.cache
+C:\Users\Henrik\Documents\GitHub\bach_current\Code Tester\Code Tester\obj\Debug\Code Tester.csproj.CoreCompileInputs.cache
+C:\Users\Henrik\Documents\GitHub\bach_current\Code Tester\Code Tester\obj\Debug\Code Tester.exe
+C:\Users\Henrik\Documents\GitHub\bach_current\Code Tester\Code Tester\obj\Debug\Code Tester.pdb
