@@ -71,5 +71,16 @@ namespace Parkeringssimulering
         {
             return freeSpaces;
         }
+        public int getTotalParkingSpaces()
+        {
+            return totalParkingSpaces;
+        }
+        public bool Free()
+        {
+            if (freeSpaces > 0)
+                return true;
+            else
+                return false;
+        }
     }
 }
