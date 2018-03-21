@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Parkeringssimulering
 {
     /// <summary>
-    /// 
+    /// the Main main
     /// </summary>
     public class main
     {
@@ -24,12 +24,10 @@ namespace Parkeringssimulering
         /// Array containing related road to their related roads.
         /// </summary>
         public static ArrayList relatedRoadsTuneVeienNorth, relatedRoadsTuneVeienSouth, relatedRoadsGralumVeienNorth, relatedRoadsGralumVeienSouth, relatedRoadsE6South, relatedRoadsSykehusVeienNorth, relatedRoadsSykehusVeienSouth = new ArrayList();
-
         /// <summary>
         /// The total parkingspots avaliable for all parkingspots.
         /// </summary>
         public static int totalParkingInspiria, totalParkingInspiriaBak, totalParkingSuperland, totalParkingQuality, totalParkingKiwi, totalParkingPoliti, totalParkingCaverion, totalParkingK5, totalParkingTuneSenter, totalParkingAdeccoAndIf, totalParkingFagforbundet;
-
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>
