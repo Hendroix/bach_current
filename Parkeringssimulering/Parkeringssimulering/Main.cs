@@ -15,7 +15,7 @@ namespace Parkeringssimulering
         /// <summary>
         /// The maximum cars 
         /// </summary>
-        public static int maximumCars, arrivingCars, parkedCars;
+        public static int maximumCars, arrivingCars, parkedCars, finishParkedCars;
         /// <summary>
         /// The related parking spots tune veien north
         /// </summary>
@@ -39,7 +39,8 @@ namespace Parkeringssimulering
             //defining the amount of cars that the simulation should manage.
             maximumCars = 1200;
             arrivingCars = 0;
-            parkedCars = 1000;
+            parkedCars = 0;
+            finishParkedCars = 830;
 
 
             //Defining the total parkingspots for each parkingzone
@@ -155,8 +156,13 @@ namespace Parkeringssimulering
 
 
 
-            while (arrivingCars <= maximumCars && parkedCars >= maximumCars)
+            while (arrivingCars <= maximumCars)
             {
+                if (checkIfDone())
+                {
+                    break;
+                }
+
                 //Car car = new Car(arrivingCars, );
             }
         }
@@ -167,6 +173,18 @@ namespace Parkeringssimulering
         static void makeNewCar(int id, Parkingspot destination, ParkingQueue arrivalFrom)
         {
             Car car = new Car(id,destination, arrivalFrom);
+        }
+
+        static bool checkIfDone()
+        {
+            if (parkedCars >= finishParkedCars)
+            { 
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
