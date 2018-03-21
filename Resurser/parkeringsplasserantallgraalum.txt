@@ -19,6 +19,20 @@ Caverion		30			57 %			17			6 %				4 %
 K5 bygget		55			61 %			34			13 %				8 %
 Totalt			670			40 %			267			100 %				100 %
 
+
+Vår telling av plasser:
+Sted		Antall Parkeringplasser		
+Inspiria		125			
+Superland-Nord		75			
+Superland-Sør		75			
+Quality Hotell		115			
+Kiwi			110			
+Politihuset		85			
+Caverion		30			
+K5 bygget		55		
+Totalt			670
+
+
 Reisevanneundersøkelsen Graalum:
 Tidsrom	Antall
 05:20	3
