@@ -31,10 +31,6 @@ namespace Parkeringssimulering
         /// The time of parking
         /// </summary>
         public int timeOfParking;
-        /// <summary>
-        /// The queue spot
-        /// </summary>
-        public int queueSpot;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Car" /> class.
