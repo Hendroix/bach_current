@@ -1,0 +1,7 @@
+c:\users\master\source\repos\Code Tester\Code Tester\bin\Debug\Code Tester.exe.config
+c:\users\master\source\repos\Code Tester\Code Tester\bin\Debug\Code Tester.exe
+c:\users\master\source\repos\Code Tester\Code Tester\bin\Debug\Code Tester.pdb
+c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.csprojResolveAssemblyReference.cache
+c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.csproj.CoreCompileInputs.cache
+c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.exe
+c:\users\master\source\repos\Code Tester\Code Tester\obj\Debug\Code Tester.pdb
