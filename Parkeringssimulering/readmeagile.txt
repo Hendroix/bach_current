@@ -5,7 +5,7 @@ Liste over hva som skal være inkludert i simuleringsmodellen.
 -	Parkeringsplass klassen inneholder: Navn(For å holdestyr på hvor de er), antall totalt parkeringsplasser(Kapasiteten til parkeringsplassen), antall ledige parkeringsplasser(totalt ledige minus opptatte plasser), antall opptatte parkeringsplasser(Hvor mange biler plassen har tatt imot).
 -	Trafikk klassen inneholder: Navn(for å holde styr på hvor den er), array med biler(Bilene som kom hit) og dere plass i køen, beslektede parkeringsplasser(hvilke parkeringsplasser de kan "gi" biler til), beslektede andre køer.
 -	Main klassen innholder: Mesteparten av koden som kjører simuleringen så denne kommer vi tilbake til med en grunndigere beskrivelse.
--	Skal håndere opptill 1200 bilitster.
+-	Skal håndere 1200 bilitster.
 -	Ta høyde for at noen bilister utenom de 1200 kan passere gjennom område i simuleringen.
 -	Køer vil gå begge veier altså trafikk fra og til.
 -	Antall parkeringsplasser skal dobbelskjekkes manuelt men enn så lenge finnes relevant data i /resurser

@@ -1,0 +1,20 @@
+Hovedrapport:
+Bytte rekkefølge på oppdragsgiver slik at sarpsborg kommune kommer først.
+Erik Mylde -> Ny kontakt i Sarpsborg Kommune.
+
+Geir Endregård -> Inspiria Science Senter.
+Snakke med han om display på skjermer, lager et backend system for behandling av data på skjermer.
+
+Simuleringen:
+Finne et tidsinterval som er passende per runde.
+1 sekunder eller under 20 sekunder.
+
+Smørbrødliste:
+1. Tidsrommet 0730-0900 som er kristisk for parkeringen og da vår simulering. (Basert på reisevaneundersøkelsen).
+2. En parkeringsløsning basert på veiledene portaler som forteller hvor det er ledige parkeringplasser.
+3. Løsningen simuleres for nå-situasjonen og sammenlignes med virkeligheten.
+4. Manipulering av parkeringsplassene ved å fjerne kapasitet og så se på hva som blir anderledes med den "nye" simuleringen.
+5. Det skal eksprimenteres med diverse reduksjonsalternativer og modellen kan kompliseres med ulike elementer.
+6. Så undersøkes hypotesen: Nå har det blirr for mye Køer og for lange parkeringstider. La oss anta at de x% som har måttet bruke lengst til på å parkere velger å bruke andre transport alternativer.
+dermed reduseres bilbruken og så ser vi på hvor mange prosent som må til for å oppnå omtrent samme effektivitet som vi har i dag.
+7. Det lages grafisk framvisning av simuleringen.
