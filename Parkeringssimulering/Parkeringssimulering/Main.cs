@@ -137,21 +137,22 @@ namespace Parkeringssimulering
                         }
                     }
                 }
-                //Console.WriteLine(currentSimTime + " < " + finalSimTime);
                 currentSimTime++;
             }
-             takenSpaces = 0;
+            takenSpaces = 0;
+            freeSpaces = 0;
 
-            //createAndGivePurposeToCars(incommingCars, madeCar, parkingQueueArray);
 
 
             foreach (Parkingspot p in parkingspotArray)
             {
                 Console.WriteLine(p.name + ": " + p.takenSpaces + "/" + p.totalParkingSpaces);
                 takenSpaces += p.takenSpaces;
+                freeSpaces += p.getFreeSpaces();
             }
+
             Console.WriteLine("Totalt antall parkeringsplasser:          " + maxParkingspots);
-            Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + (freeSpaces - takenSpaces));
+            Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + (freeSpaces));
             Console.WriteLine("Totalt antall opptatte parkeringsplasser: " + takenSpaces);
             Console.WriteLine("Biler som ikke fant parkeringsplass:      " + counldtFindParking);
 
@@ -168,7 +169,6 @@ namespace Parkeringssimulering
         /// <param name="listOfParkingsSpots">The list of parkings spots.</param>
         public static void createAndGivePurposeToCars(int wantedAmountOfCars, int alreadyMadeCars, ParkingQueue[] listOfParkingsSpots)
         {
-            //Console.WriteLine("Calculating Desinations");
             while (wantedAmountOfCars > alreadyMadeCars)
             {
                 makeCar(randomArray[randomPointer], getQueue(listOfParkingsSpots));
@@ -207,7 +207,6 @@ namespace Parkeringssimulering
             if (parkingChance <= 9 && inspiria.Free())
             {
                 inspiria.addTakenSpaces();
-
                 Car car = new Car(randomPointer, inspiria, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: "  + car.id + " " + car.Destination.name);
@@ -415,13 +414,21 @@ namespace Parkeringssimulering
         {
             arrivingCars = 0;
             double c = c_Random.Next(0, 1);
-            while ()
+            bool hit = true;
+            while (hit)
             {
-                chance > 1.0;
-                arrivingCars++;
-                if (chance > 1.0)
+                if (chance > 1.0f)
                 {
+                    arrivingCars++;
                     chance -= (chance * 0.40f);
+                }
+                else if (c > chance)
+                {
+                    arrivingCars++;
+                }
+                else
+                {
+                    hit = false;
                 }
             }
             return arrivingCars;
