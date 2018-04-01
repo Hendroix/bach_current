@@ -405,9 +405,21 @@ namespace Parkeringssimulering
         private static ParkingQueue getQueue(ParkingQueue[] parkingQueueArray)
         {
             random = new Random();
+            int holder;
             int chance = random.Next(0, 3);
-            ParkingQueue queuespot = parkingQueueArray[chance];
-            return queuespot;
+            holder = chance;
+            if (chance != holder)
+            {
+                ParkingQueue queuespot = parkingQueueArray[chance];
+                return queuespot;
+            }
+            else
+            {
+                chance = random.Next(0, 3);
+                ParkingQueue queuespot = parkingQueueArray[chance];
+                return queuespot;
+            }
+            
 
         }
         private static int getArrivingCarsRandom(double chance)
