@@ -22,7 +22,7 @@ namespace Parkeringssimulering
         /// The random array
         /// </summary>
         public static int[] randomArray = new int[1000000];
-        public static int[] randomArray2 = new int[1000000];
+        public static double[] randomArray2 = new double[1000000];
         public static int randomPointer = 1;
         public static int randomPointer2 = 1;
         /// <summary>
@@ -185,6 +185,10 @@ namespace Parkeringssimulering
             {
                 randomArray[i] = getRandomNumber();
             }
+            for (int i = 0; i < randomArray.Length; i++)
+            {
+                randomArray2[i] = getRandomNumberChance();
+            }
         }
         /// <summary>
         /// Gets the random number.
@@ -193,6 +197,11 @@ namespace Parkeringssimulering
         static int getRandomNumber()
         {
             int newRandom = s_Random.Next(0, 100);
+            return newRandom;
+        }
+        static double getRandomNumberChance()
+        {
+            double newRandom = c_Random.Next(0, 100);
             return newRandom;
         }
         /// <summary>
@@ -425,23 +434,28 @@ namespace Parkeringssimulering
         private static int getArrivingCarsRandom(double chance)
         {
             arrivingCars = 0;
-            double c = c_Random.Next(0, 1);
+            double c;
             bool hit = true;
             while (hit)
             {
+                c = (randomArray2[randomPointer2] / 100);
+                //Console.WriteLine("C: " + c + " <" + " Chance: " + chance);
                 if (chance > 1.0f)
                 {
                     arrivingCars++;
-                    chance -= (chance * 0.40f);
+                    chance = (chance * 0.55f);
                 }
-                else if (c > chance)
+                else if (c < chance && chance < 1.0f)
                 {
                     arrivingCars++;
+                    chance = (chance * 0.55f);
+                    randomPointer2++;
                 }
                 else
                 {
                     hit = false;
                 }
+                randomPointer2++;
             }
             return arrivingCars;
         }
