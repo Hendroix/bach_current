@@ -82,5 +82,13 @@ namespace Parkeringssimulering
             else
                 return false;
         }
+
+        public void toString()
+        {
+            foreach (Car in listOfCars)
+            {
+
+            }
+        }
     }
 }

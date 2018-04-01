@@ -14,6 +14,10 @@ Smørbrødliste:
 2. En parkeringsløsning basert på veiledene portaler som forteller hvor det er ledige parkeringplasser.
 3. Løsningen simuleres for nå-situasjonen og sammenlignes med virkeligheten.
 4. Manipulering av parkeringsplassene ved å fjerne kapasitet og så se på hva som blir anderledes med den "nye" simuleringen.
+4.1 -> Simmulering ved at vi minsker trafikken med at 20 av de ansatte kjører sammen framover. (Antall Ansatte * 90% * 20% / 2 = reduksjonen av parkeringsplassen)
+4.2 -> Nedre Glomma har også ønske om en X%.
+4.3 -> 40 % av Femdagsbillistene har kortere vei enn 10 KM og vil bli tilbudt EL-sykkel.
+4.4 -> Ulrika vil at det også skal legges in passive "reduseringer" av parkeringsplassene på 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80% og 90%.
 5. Det skal eksprimenteres med diverse reduksjonsalternativer og modellen kan kompliseres med ulike elementer.
 6. Så undersøkes hypotesen: Nå har det blirr for mye Køer og for lange parkeringstider. La oss anta at de x% som har måttet bruke lengst til på å parkere velger å bruke andre transport alternativer.
 dermed reduseres bilbruken og så ser vi på hvor mange prosent som må til for å oppnå omtrent samme effektivitet som vi har i dag.
