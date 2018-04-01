@@ -13,10 +13,16 @@ namespace Parkeringssimulering
     public class main
     {
 
+        /// <summary>
+        /// The s random
+        /// </summary>
         public static Random s_Random = new Random();
+        /// <summary>
+        /// The random array
+        /// </summary>
         public static int[] randomArray = new int[10000];
         /// <summary>
-        /// The maximum cars 
+        /// The maximum cars
         /// </summary>
         public static int maximumCars, arrivingCars, madeCar, finishParkedCars, maxParkingspots, freeSpaces, takenSpaces;
         /// <summary>
@@ -31,9 +37,18 @@ namespace Parkeringssimulering
         /// The total parkingspots avaliable for all parkingspots.
         /// </summary>
         public static Parkingspot inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet;
+        /// <summary>
+        /// The counldt find parking
+        /// </summary>
         private static int counldtFindParking;
+        /// <summary>
+        /// The random
+        /// </summary>
         public static Random random;
-        public static int currentSimTime, finalSimTime; 
+        /// <summary>
+        /// The current sim time
+        /// </summary>
+        public static int currentSimTime, finalSimTime;
 
         /// <summary>
         /// Defines the entry point of the application.
@@ -99,17 +114,18 @@ namespace Parkeringssimulering
             madeCar = 0;
             int incommingCars = 1200;
             //starts @ 0th time intervall
-            currentSimTime = 0;
+            currentSimTime = 1;
             //we have 1080 time intervalls, intervall tick every 10 sec, for 3 hours. 10 * 6 = 1 min * 60 = 1 hour * 3 = 3 Hour. 6 * 60 * 3 = 1080 intervalls.
             finalSimTime = 1080;
 
-            CalculateDestination(incommingCars, madeCar, parkingQueueArray);
-            while (currentSimTime < finalSimTime)
+            while (currentSimTime <= finalSimTime)
             {
                 Console.WriteLine(currentSimTime + " < " + finalSimTime);
                 currentSimTime++;
             }
             takenSpaces = 0;
+
+            createAndGivePurposeToCars(incommingCars, madeCar, parkingQueueArray);
 
             foreach (Parkingspot p in parkingspotArray)
             {
@@ -125,15 +141,25 @@ namespace Parkeringssimulering
             Console.ReadKey();
 
         }
-        public static void CalculateDestination(int traficAmount, int traficCounter, ParkingQueue[] parkingQueue)
+
+        /// <summary>
+        /// Creates the and give purpose to cars.
+        /// </summary>
+        /// <param name="wantedAmountOfCars">The wanted amount of cars.</param>
+        /// <param name="alreadyMadeCars">The already made cars.</param>
+        /// <param name="listOfParkingsSpots">The list of parkings spots.</param>
+        public static void createAndGivePurposeToCars(int wantedAmountOfCars, int alreadyMadeCars, ParkingQueue[] listOfParkingsSpots)
         {
             generateRandomNumbers();
             Console.WriteLine("Calculating Desinations");
-            while (traficAmount > madeCar)
+            while (wantedAmountOfCars > alreadyMadeCars)
             {
-                makeCar(randomArray[madeCar], getQueue(parkingQueue));
+                makeCar(randomArray[madeCar], getQueue(listOfParkingsSpots));
             }
         }
+        /// <summary>
+        /// Generates the random numbers.
+        /// </summary>
         static void generateRandomNumbers()
         {
             for (int i = 0; i < randomArray.Length; i++)
@@ -141,11 +167,20 @@ namespace Parkeringssimulering
                 randomArray[i] = getRandomNumber();
             }
         }
+        /// <summary>
+        /// Gets the random number.
+        /// </summary>
+        /// <returns></returns>
         static int getRandomNumber()
         {
             int newRandom = s_Random.Next(0, 100);
             return newRandom;
         }
+        /// <summary>
+        /// Makes the car.
+        /// </summary>
+        /// <param name="chance">The chance.</param>
+        /// <param name="queuespot">The queuespot.</param>
         private static void makeCar(int chance, ParkingQueue queuespot)
         {
             int parkingChance = chance;
@@ -337,9 +372,19 @@ namespace Parkeringssimulering
             }
         }
 
+        /// <summary>
+        /// Places the in queue.
+        /// </summary>
+        /// <param name="queuespot">The queuespot.</param>
+        /// <param name="car">The car.</param>
         private static void placeInQueue(ParkingQueue queuespot, Car car) {
             queuespot.carsInQueue.Enqueue(car);
         }
+        /// <summary>
+        /// Gets the queue.
+        /// </summary>
+        /// <param name="parkingQueueArray">The parking queue array.</param>
+        /// <returns></returns>
         private static ParkingQueue getQueue(ParkingQueue[] parkingQueueArray)
         {
             random = new Random();
