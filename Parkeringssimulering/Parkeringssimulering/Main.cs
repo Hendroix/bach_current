@@ -125,6 +125,7 @@ namespace Parkeringssimulering
             while (currentSimTime <= finalSimTime)
             {
                 int currentlyMade = 0;
+                //Intervall round 1
                 if (currentSimTime <= 30)
                 {
                     if (currentlyMade == 0)
@@ -137,6 +138,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 2
                 if (currentSimTime <= 60 && currentSimTime > 30)
                 {
                     if (currentlyMade == 0)
@@ -149,6 +152,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 3
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -161,6 +166,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 4
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -173,6 +180,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 5
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -185,6 +194,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 6
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -197,6 +208,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 7
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -209,6 +222,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 8
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -221,6 +236,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 9
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -233,6 +250,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 10
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -245,6 +264,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 11
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -257,6 +278,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 12
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -269,6 +292,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 13
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -281,6 +306,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
+                //Intervall round 14
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
@@ -293,18 +320,8 @@ namespace Parkeringssimulering
                         }
                     }
                 }
-                if (currentSimTime <= 60)
-                {
-                    if (currentlyMade == 0)
-                    {
-                        if (totalAmountOfCars < 88)
-                        {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
-                        }
-                    }
-                }
+
+                //Intervall round 16
                 if (currentSimTime <= 60)
                 {
                     if (currentlyMade == 0)
