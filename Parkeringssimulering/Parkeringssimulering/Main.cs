@@ -17,14 +17,18 @@ namespace Parkeringssimulering
         /// The s random
         /// </summary>
         public static Random s_Random = new Random();
+        public static Random c_Random = new Random();
         /// <summary>
         /// The random array
         /// </summary>
-        public static int[] randomArray = new int[10000];
+        public static int[] randomArray = new int[1000000];
+        public static int[] randomArray2 = new int[1000000];
+        public static int randomPointer = 1;
+        public static int randomPointer2 = 1;
         /// <summary>
         /// The maximum cars
         /// </summary>
-        public static int maximumCars, arrivingCars, madeCar, finishParkedCars, maxParkingspots, freeSpaces, takenSpaces;
+        public static int maximumCars, arrivingCars, madeCar, finishParkedCars, maxParkingspots, freeSpaces, takenSpaces, totalAmountOfCars;
         /// <summary>
         /// The related parking spots tune veien north
         /// </summary>
@@ -117,15 +121,29 @@ namespace Parkeringssimulering
             currentSimTime = 1;
             //we have 1080 time intervalls, intervall tick every 10 sec, for 3 hours. 10 * 6 = 1 min * 60 = 1 hour * 3 = 3 Hour. 6 * 60 * 3 = 1080 intervalls.
             finalSimTime = 1080;
-
+            generateRandomNumbers();
             while (currentSimTime <= finalSimTime)
             {
-                Console.WriteLine(currentSimTime + " < " + finalSimTime);
+                int currentlyMade = 0;
+                if (currentSimTime <= 60)
+                {
+                    if (currentlyMade == 0)
+                    {
+                        if (totalAmountOfCars < 88)
+                        {
+                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                        }
+                    }
+                }
+                //Console.WriteLine(currentSimTime + " < " + finalSimTime);
                 currentSimTime++;
             }
-            takenSpaces = 0;
+             takenSpaces = 0;
 
-            createAndGivePurposeToCars(incommingCars, madeCar, parkingQueueArray);
+            //createAndGivePurposeToCars(incommingCars, madeCar, parkingQueueArray);
+
 
             foreach (Parkingspot p in parkingspotArray)
             {
@@ -143,18 +161,19 @@ namespace Parkeringssimulering
         }
 
         /// <summary>
-        /// Creates the and give purpose to cars.
+        /// Creates and give purpose to the cars.
         /// </summary>
         /// <param name="wantedAmountOfCars">The wanted amount of cars.</param>
         /// <param name="alreadyMadeCars">The already made cars.</param>
         /// <param name="listOfParkingsSpots">The list of parkings spots.</param>
         public static void createAndGivePurposeToCars(int wantedAmountOfCars, int alreadyMadeCars, ParkingQueue[] listOfParkingsSpots)
         {
-            generateRandomNumbers();
-            Console.WriteLine("Calculating Desinations");
+            //Console.WriteLine("Calculating Desinations");
             while (wantedAmountOfCars > alreadyMadeCars)
             {
-                makeCar(randomArray[madeCar], getQueue(listOfParkingsSpots));
+                makeCar(randomArray[randomPointer], getQueue(listOfParkingsSpots));
+                alreadyMadeCars++;
+                totalAmountOfCars++;
             }
         }
         /// <summary>
@@ -189,189 +208,188 @@ namespace Parkeringssimulering
             {
                 inspiria.addTakenSpaces();
 
-                Car car = new Car(madeCar, inspiria, queuespot);
+                Car car = new Car(randomPointer, inspiria, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: "  + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 12 && inspiriaBak.Free())
             {
                 inspiriaBak.addTakenSpaces();
-                Car car = new Car(madeCar, inspiriaBak, queuespot);
+                Car car = new Car(randomPointer, inspiriaBak, queuespot);
                 placeInQueue(queuespot, car);
-                Console.WriteLine(queuespot.name + ": " + " " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
+                randomPointer++;
             }
             else if (parkingChance <= 27 && superland.Free())
             {
                 superland.addTakenSpaces();
-                Car car = new Car(madeCar, superland, queuespot);
+                Car car = new Car(randomPointer, superland, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 42 && quality.Free())
             {
                 quality.addTakenSpaces();
-                Car car = new Car(madeCar, quality, queuespot);
+                Car car = new Car(randomPointer, quality, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 57 && kiwi.Free())
             {
                 kiwi.addTakenSpaces();
-                Car car = new Car(madeCar, kiwi, queuespot);
+                Car car = new Car(randomPointer, kiwi, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 69 && politi.Free())
             {
                 politi.addTakenSpaces();
-                Car car = new Car(madeCar, politi, queuespot);
+                Car car = new Car(randomPointer, politi, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 73 && caverion.Free())
             {
                 caverion.addTakenSpaces();
-                Car car = new Car(madeCar, caverion, queuespot);
+                Car car = new Car(randomPointer, caverion, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 76 && k5.Free())
             {
                 k5.addTakenSpaces();
-                Car car = new Car(madeCar, k5, queuespot);
+                Car car = new Car(randomPointer, k5, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 84 && tuneSenter.Free())
             {
                 tuneSenter.addTakenSpaces();
-                Car car = new Car(madeCar, tuneSenter, queuespot);
+                Car car = new Car(randomPointer, tuneSenter, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 92 && adeccoAndIf.Free())
             {
                 adeccoAndIf.addTakenSpaces();
-                Car car = new Car(madeCar, adeccoAndIf, queuespot);
+                Car car = new Car(randomPointer, adeccoAndIf, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else if (parkingChance <= 100 && fagforbundet.Free())
             {
                 fagforbundet.addTakenSpaces();
-                Car car = new Car(madeCar, fagforbundet, queuespot);
+                Car car = new Car(randomPointer, fagforbundet, queuespot);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                madeCar++;
+                randomPointer++;
             }
             else
             {
                 if (inspiria.Free())
                 {
                     inspiria.addTakenSpaces();
-                    Car car = new Car(madeCar, inspiria, queuespot);
+                    Car car = new Car(randomPointer, inspiria, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (inspiriaBak.Free())
                 {
                     inspiriaBak.addTakenSpaces();
-                    Car car = new Car(madeCar, inspiriaBak, queuespot);
+                    Car car = new Car(randomPointer, inspiriaBak, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (superland.Free())
                 {
                     superland.addTakenSpaces();
-                    Car car = new Car(madeCar, superland, queuespot);
+                    Car car = new Car(randomPointer, superland, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (quality.Free())
                 {
                     quality.addTakenSpaces();
-                    Car car = new Car(madeCar, quality, queuespot);
+                    Car car = new Car(randomPointer, quality, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (kiwi.Free())
                 {
                     kiwi.addTakenSpaces();
-                    Car car = new Car(madeCar, kiwi, queuespot);
+                    Car car = new Car(randomPointer, kiwi, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (politi.Free())
                 {
                     politi.addTakenSpaces();
-                    Car car = new Car(madeCar, politi, queuespot);
+                    Car car = new Car(randomPointer, politi, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (caverion.Free())
                 {
                     caverion.addTakenSpaces();
-                    Car car = new Car(madeCar, caverion, queuespot);
+                    Car car = new Car(randomPointer, caverion, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (k5.Free())
                 {
                     k5.addTakenSpaces();
-                    Car car = new Car(madeCar, k5, queuespot);
+                    Car car = new Car(randomPointer, k5, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (tuneSenter.Free())
                 {
                     tuneSenter.addTakenSpaces();
-                    Car car = new Car(madeCar, tuneSenter, queuespot);
+                    Car car = new Car(randomPointer, tuneSenter, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (adeccoAndIf.Free())
                 {
                     adeccoAndIf.addTakenSpaces();
-                    Car car = new Car(madeCar, adeccoAndIf, queuespot);
+                    Car car = new Car(randomPointer, adeccoAndIf, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else if (fagforbundet.Free())
                 {
                     fagforbundet.addTakenSpaces();
-                    Car car = new Car(madeCar, fagforbundet, queuespot);
+                    Car car = new Car(randomPointer, fagforbundet, queuespot);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
-                    madeCar++;
+                    randomPointer++;
                 }
                 else
                 {
                     counldtFindParking++;
-                    madeCar++;
+                    randomPointer++;
                 }
             }
         }
-
         /// <summary>
         /// Places the in queue.
         /// </summary>
@@ -392,6 +410,21 @@ namespace Parkeringssimulering
             ParkingQueue queuespot = parkingQueueArray[chance];
             return queuespot;
 
+        }
+        private static int getArrivingCarsRandom(double chance)
+        {
+            arrivingCars = 0;
+            double c = c_Random.Next(0, 1);
+            while ()
+            {
+                chance > 1.0;
+                arrivingCars++;
+                if (chance > 1.0)
+                {
+                    chance -= (chance * 0.40f);
+                }
+            }
+            return arrivingCars;
         }
 
     }
