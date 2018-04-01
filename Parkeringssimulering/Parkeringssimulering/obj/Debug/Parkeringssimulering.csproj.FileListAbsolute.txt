@@ -21,3 +21,8 @@ C:\Users\Aga\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimule
 C:\Users\Aga\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.pdb
 C:\Users\henri\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.exe
 C:\Users\henri\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.pdb
+C:\Users\henri\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\bin\Debug\Parkeringssimulering.exe.config
+C:\Users\henri\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\bin\Debug\Parkeringssimulering.exe
+C:\Users\henri\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\bin\Debug\Parkeringssimulering.pdb
+C:\Users\henri\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.csprojResolveAssemblyReference.cache
+C:\Users\henri\Documents\GitHub\bach_current\Parkeringssimulering\Parkeringssimulering\obj\Debug\Parkeringssimulering.csproj.CoreCompileInputs.cache

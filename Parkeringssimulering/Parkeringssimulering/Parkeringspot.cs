@@ -83,12 +83,5 @@ namespace Parkeringssimulering
                 return false;
         }
 
-        public void toString()
-        {
-            foreach (Car in listOfCars)
-            {
-
-            }
-        }
     }
 }

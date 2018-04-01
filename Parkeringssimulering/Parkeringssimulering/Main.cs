@@ -33,6 +33,7 @@ namespace Parkeringssimulering
         public static Parkingspot inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet;
         private static int counldtFindParking;
         public static Random random;
+        public static int currentSimTime, finalSimTime; 
 
         /// <summary>
         /// Defines the entry point of the application.
@@ -93,11 +94,21 @@ namespace Parkeringssimulering
             Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + freeSpaces);
             Console.WriteLine("Totalt antall opptatte parkeringsplasser: " + takenSpaces);
 
+            
+            //Criterias for the simulation
             madeCar = 0;
             int incommingCars = 1200;
+            //starts @ 0th time intervall
+            currentSimTime = 0;
+            //we have 1080 time intervalls, intervall tick every 10 sec, for 3 hours. 10 * 6 = 1 min * 60 = 1 hour * 3 = 3 Hour. 6 * 60 * 3 = 1080 intervalls.
+            finalSimTime = 1080;
+
             CalculateDestination(incommingCars, madeCar, parkingQueueArray);
-
-
+            while (currentSimTime < finalSimTime)
+            {
+                Console.WriteLine(currentSimTime + " < " + finalSimTime);
+                currentSimTime++;
+            }
             takenSpaces = 0;
 
             foreach (Parkingspot p in parkingspotArray)
@@ -120,7 +131,6 @@ namespace Parkeringssimulering
             Console.WriteLine("Calculating Desinations");
             while (traficAmount > madeCar)
             {
-                
                 makeCar(randomArray[madeCar], getQueue(parkingQueue));
             }
         }
