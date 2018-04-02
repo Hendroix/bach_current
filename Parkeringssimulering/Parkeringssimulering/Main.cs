@@ -136,7 +136,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 88)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.93f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -152,7 +152,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 136)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.8f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -168,7 +168,7 @@ namespace Parkeringssimulering
                     {   
                         if (totalAmountOfCars < 150)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.58f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -184,7 +184,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 292)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.15f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -200,7 +200,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 304)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.22f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -216,7 +216,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 385)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.25f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -232,7 +232,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 442)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.36f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -248,7 +248,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 480)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.58f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -264,7 +264,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 852)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(6.89f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -280,7 +280,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 894)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.7f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -296,7 +296,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1021)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.41f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -312,7 +312,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1037)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.18f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -328,7 +328,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1068)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.20f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -344,7 +344,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1080)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.11f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -360,13 +360,21 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1096)
                         {
-                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
+                            Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.09f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(sleep);
                         }
                     }
+                }
+
+
+                foreach (ParkingQueue pq in parkingQueueArray)
+                {
+                    Car c = (Car)pq.carsInQueue.Peek();
+                    pq.carsInQueue.Dequeue();
+
                 }
 
                 currentSimTime++;
@@ -379,11 +387,10 @@ namespace Parkeringssimulering
             {
                 Console.WriteLine(p.name + ": " + p.takenSpaces + "/" + p.totalParkingSpaces);
                 takenSpaces += p.takenSpaces;
-                freeSpaces += p.getFreeSpaces();
             }
 
             Console.WriteLine("Totalt antall parkeringsplasser:          " + maxParkingspots);
-            Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + (freeSpaces));
+            Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + (maxParkingspots - takenSpaces));
             Console.WriteLine("Totalt antall opptatte parkeringsplasser: " + takenSpaces);
             Console.WriteLine("Biler som ikke fant parkeringsplass:      " + counldtFindParking);
 
@@ -457,7 +464,7 @@ namespace Parkeringssimulering
             if (parkingChance <= 9 && inspiria.Free())
             {
                 inspiria.addTakenSpaces();
-                Car car = new Car(randomPointer, inspiria, queuespot);
+                Car car = new Car(randomPointer, inspiria, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: "  + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -465,7 +472,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 12 && inspiriaBak.Free())
             {
                 inspiriaBak.addTakenSpaces();
-                Car car = new Car(randomPointer, inspiriaBak, queuespot);
+                Car car = new Car(randomPointer, inspiriaBak, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -473,7 +480,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 27 && superland.Free())
             {
                 superland.addTakenSpaces();
-                Car car = new Car(randomPointer, superland, queuespot);
+                Car car = new Car(randomPointer, superland, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -481,7 +488,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 42 && quality.Free())
             {
                 quality.addTakenSpaces();
-                Car car = new Car(randomPointer, quality, queuespot);
+                Car car = new Car(randomPointer, quality, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -489,7 +496,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 57 && kiwi.Free())
             {
                 kiwi.addTakenSpaces();
-                Car car = new Car(randomPointer, kiwi, queuespot);
+                Car car = new Car(randomPointer, kiwi, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -497,7 +504,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 69 && politi.Free())
             {
                 politi.addTakenSpaces();
-                Car car = new Car(randomPointer, politi, queuespot);
+                Car car = new Car(randomPointer, politi, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -505,7 +512,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 73 && caverion.Free())
             {
                 caverion.addTakenSpaces();
-                Car car = new Car(randomPointer, caverion, queuespot);
+                Car car = new Car(randomPointer, caverion, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -513,7 +520,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 76 && k5.Free())
             {
                 k5.addTakenSpaces();
-                Car car = new Car(randomPointer, k5, queuespot);
+                Car car = new Car(randomPointer, k5, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -521,7 +528,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 84 && tuneSenter.Free())
             {
                 tuneSenter.addTakenSpaces();
-                Car car = new Car(randomPointer, tuneSenter, queuespot);
+                Car car = new Car(randomPointer, tuneSenter, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -529,7 +536,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 92 && adeccoAndIf.Free())
             {
                 adeccoAndIf.addTakenSpaces();
-                Car car = new Car(randomPointer, adeccoAndIf, queuespot);
+                Car car = new Car(randomPointer, adeccoAndIf, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -537,7 +544,7 @@ namespace Parkeringssimulering
             else if (parkingChance <= 100 && fagforbundet.Free())
             {
                 fagforbundet.addTakenSpaces();
-                Car car = new Car(randomPointer, fagforbundet, queuespot);
+                Car car = new Car(randomPointer, fagforbundet, queuespot, currentSimTime);
                 placeInQueue(queuespot, car);
                 Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                 randomPointer++;
@@ -547,7 +554,7 @@ namespace Parkeringssimulering
                 if (inspiria.Free())
                 {
                     inspiria.addTakenSpaces();
-                    Car car = new Car(randomPointer, inspiria, queuespot);
+                    Car car = new Car(randomPointer, inspiria, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -555,7 +562,7 @@ namespace Parkeringssimulering
                 else if (inspiriaBak.Free())
                 {
                     inspiriaBak.addTakenSpaces();
-                    Car car = new Car(randomPointer, inspiriaBak, queuespot);
+                    Car car = new Car(randomPointer, inspiriaBak, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -563,7 +570,7 @@ namespace Parkeringssimulering
                 else if (superland.Free())
                 {
                     superland.addTakenSpaces();
-                    Car car = new Car(randomPointer, superland, queuespot);
+                    Car car = new Car(randomPointer, superland, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -571,7 +578,7 @@ namespace Parkeringssimulering
                 else if (quality.Free())
                 {
                     quality.addTakenSpaces();
-                    Car car = new Car(randomPointer, quality, queuespot);
+                    Car car = new Car(randomPointer, quality, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + queuespot.carsInQueue.Count + " " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -579,7 +586,7 @@ namespace Parkeringssimulering
                 else if (kiwi.Free())
                 {
                     kiwi.addTakenSpaces();
-                    Car car = new Car(randomPointer, kiwi, queuespot);
+                    Car car = new Car(randomPointer, kiwi, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -587,7 +594,7 @@ namespace Parkeringssimulering
                 else if (politi.Free())
                 {
                     politi.addTakenSpaces();
-                    Car car = new Car(randomPointer, politi, queuespot);
+                    Car car = new Car(randomPointer, politi, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -595,7 +602,7 @@ namespace Parkeringssimulering
                 else if (caverion.Free())
                 {
                     caverion.addTakenSpaces();
-                    Car car = new Car(randomPointer, caverion, queuespot);
+                    Car car = new Car(randomPointer, caverion, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -603,7 +610,7 @@ namespace Parkeringssimulering
                 else if (k5.Free())
                 {
                     k5.addTakenSpaces();
-                    Car car = new Car(randomPointer, k5, queuespot);
+                    Car car = new Car(randomPointer, k5, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -611,7 +618,7 @@ namespace Parkeringssimulering
                 else if (tuneSenter.Free())
                 {
                     tuneSenter.addTakenSpaces();
-                    Car car = new Car(randomPointer, tuneSenter, queuespot);
+                    Car car = new Car(randomPointer, tuneSenter, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -619,7 +626,7 @@ namespace Parkeringssimulering
                 else if (adeccoAndIf.Free())
                 {
                     adeccoAndIf.addTakenSpaces();
-                    Car car = new Car(randomPointer, adeccoAndIf, queuespot);
+                    Car car = new Car(randomPointer, adeccoAndIf, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;
@@ -627,7 +634,7 @@ namespace Parkeringssimulering
                 else if (fagforbundet.Free())
                 {
                     fagforbundet.addTakenSpaces();
-                    Car car = new Car(randomPointer, fagforbundet, queuespot);
+                    Car car = new Car(randomPointer, fagforbundet, queuespot, currentSimTime);
                     placeInQueue(queuespot, car);
                     Console.WriteLine(queuespot.name + ": " + "Car: " + car.id + " " + car.Destination.name);
                     randomPointer++;

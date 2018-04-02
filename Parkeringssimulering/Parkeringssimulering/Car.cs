@@ -24,13 +24,9 @@ namespace Parkeringssimulering
         /// </summary>
         public ParkingQueue arrivalFrom;
         /// <summary>
-        /// The time of arrival
-        /// </summary>
-        public int timeOfQueuing;
-        /// <summary>
         /// The time of parking
         /// </summary>
-        public int timeOfParking;
+        public int timeOfParking, timeOfCreation;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Car" /> class.
@@ -38,12 +34,12 @@ namespace Parkeringssimulering
         /// <param name="id">The identifier.</param>
         /// <param name="destination">The destination.</param>
         /// <param name="arrivalFrom">The arrival from.</param>
-        public Car(int id, Parkingspot destination, ParkingQueue arrivalFrom)
+        public Car(int id, Parkingspot destination, ParkingQueue arrivalFrom, int timeOfCreation)
         {
             this.id = id;
             Destination = destination;
             this.arrivalFrom = arrivalFrom;
-            this.timeOfQueuing = 0;
+            this.timeOfCreation = timeOfCreation;
         }
         /// <summary>
         /// Gets the time of parking.
@@ -53,13 +49,13 @@ namespace Parkeringssimulering
         {
             return timeOfParking;
         }
-        /// <summary>
-        /// Adds the waiting time.
-        /// </summary>
-        /// <param name="time">The time.</param>
-        public void addWaitingTime(int time)
+        public int getTimeOfCreation()
         {
-            this.timeOfParking += time;
+            return timeOfCreation;
+        }
+        public void setTimeofParking(int timeOfParking)
+        {
+            this.timeOfParking = timeOfParking;
         }
 
     }
