@@ -23,8 +23,10 @@ namespace Parkeringssimulering
         /// </summary>
         public static int[] randomArray = new int[1000000];
         public static double[] randomArray2 = new double[1000000];
+        public static int[] randomArray3 = new int[1000000];
         public static int randomPointer = 1;
         public static int randomPointer2 = 1;
+        public static int randomPointer3 = 1;
         /// <summary>
         /// The maximum cars
         /// </summary>
@@ -124,6 +126,7 @@ namespace Parkeringssimulering
             generateRandomNumbers();
             while (currentSimTime <= finalSimTime)
             {
+                int sleep = 1000;
                 int currentlyMade = 0;
                 //Intervall round 1
                 if (currentSimTime <= 30)
@@ -132,205 +135,235 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 88)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(2.93f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 2
-                if (currentSimTime <= 60 && currentSimTime > 30)
+                 if (currentSimTime <= 90 && currentSimTime > 30)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 136)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.8f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 3
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 114 && currentSimTime > 90)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 150)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.58f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 4
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 180 && currentSimTime > 114)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 292)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(2.15f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 5
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 234 && currentSimTime > 180)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 304)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.22f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 6
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 270 && currentSimTime > 234)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 385)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(2.25f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 7
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 312 && currentSimTime > 270)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 442)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(1.36f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 8
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 336 && currentSimTime > 312)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 480)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(1.58f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 9
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 390 && currentSimTime > 336)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 852)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(6.89f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 10
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 450 && currentSimTime > 390)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 894)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.7f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 11
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 540 && currentSimTime > 450)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 1021)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(1.41f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 12
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 630 && currentSimTime > 540)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 1037)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.18f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 13
-                if (currentSimTime <= 60)
+                 if (currentSimTime <= 786 && currentSimTime > 630)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 1068)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.20f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
                 //Intervall round 14
-                if (currentSimTime <= 60)
+                if (currentSimTime <= 900 && currentSimTime > 786)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 1080)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.11f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
 
-                //Intervall round 16
-                if (currentSimTime <= 60)
+                //Intervall round 15
+                if (currentSimTime <= 1080 && currentSimTime > 900)
                 {
                     if (currentlyMade == 0)
                     {
-                        if (totalAmountOfCars < 88)
+                        if (totalAmountOfCars < 1096)
                         {
-                            int carsToBeMade = getArrivingCarsRandom(1.466666666f);
+                            Console.WriteLine("Round: " + currentSimTime);
+                            int carsToBeMade = getArrivingCarsRandom(0.09f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
-                            Console.WriteLine("Time: " + currentSimTime + " Cars Made: " + carsToBeMade);
+                            Console.WriteLine();
+                            System.Threading.Thread.Sleep(sleep);
                         }
                     }
                 }
@@ -382,10 +415,15 @@ namespace Parkeringssimulering
             {
                 randomArray[i] = getRandomNumber();
             }
-            for (int i = 0; i < randomArray.Length; i++)
+            for (int i = 0; i < randomArray2.Length; i++)
             {
                 randomArray2[i] = getRandomNumberChance();
             }
+            for (int i = 0; i < randomArray3.Length; i++)
+            {
+                randomArray3[i] = getRandomNumberParking();
+            }
+
         }
         /// <summary>
         /// Gets the random number.
@@ -394,6 +432,11 @@ namespace Parkeringssimulering
         static int getRandomNumber()
         {
             int newRandom = s_Random.Next(0, 100);
+            return newRandom;
+        }
+        static int getRandomNumberParking()
+        {
+            int newRandom = s_Random.Next(0, 3);
             return newRandom;
         }
         static double getRandomNumberChance()
@@ -611,23 +654,11 @@ namespace Parkeringssimulering
         /// <returns></returns>
         private static ParkingQueue getQueue(ParkingQueue[] parkingQueueArray)
         {
-            random = new Random();
-            int holder;
-            int chance = random.Next(0, 3);
-            holder = chance;
-            if (chance != holder)
-            {
-                ParkingQueue queuespot = parkingQueueArray[chance];
-                return queuespot;
-            }
-            else
-            {
-                chance = random.Next(0, 3);
-                ParkingQueue queuespot = parkingQueueArray[chance];
-                return queuespot;
-            }
+            int chance = randomArray3[randomPointer3];
+            randomPointer3++;
+            ParkingQueue queuespot = parkingQueueArray[chance];
+            return queuespot;
             
-
         }
         private static int getArrivingCarsRandom(double chance)
         {
