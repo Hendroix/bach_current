@@ -124,6 +124,7 @@ namespace Parkeringssimulering
             //we have 1080 time intervalls, intervall tick every 10 sec, for 3 hours. 10 * 6 = 1 min * 60 = 1 hour * 3 = 3 Hour. 6 * 60 * 3 = 1080 intervalls.
             finalSimTime = 1080;
             generateRandomNumbers();
+            //start of While simulation loop
             while (currentSimTime <= finalSimTime)
             {
                 int sleep = 10;
@@ -372,11 +373,30 @@ namespace Parkeringssimulering
 
                 foreach (ParkingQueue pq in parkingQueueArray)
                 {
-                    Car c = (Car)pq.carsInQueue.Peek();
-                    pq.carsInQueue.Dequeue();
+                    if (pq.carsInQueue.Count > 0)
+                    {
+                        if (pq.name == "E6")
+                        {
+                            Car c = (Car)pq.carsInQueue.Peek();
+                            int cCreationTime = c.getTimeOfCreation();
+                            if (cCreationTime < currentSimTime)
+                            {
+                                pq.carsInQueue.Dequeue();
+                                Console.WriteLine("This is a car Object, Car nummer: " + c.id + " and im in " + pq.name);
+                                c.setTimeofParking(currentSimTime);
+                                Parkingspot ps = c.Destination;
+                                if (pq.name == "E6")
+                                {
+                                    sykehusVeienQueueNorth.Enqueue(c);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til TuneVeienNord");
+                                }
+                            }
+                        }
+                    }
 
                 }
 
+                //End of while simulation loop
                 currentSimTime++;
             }
 
