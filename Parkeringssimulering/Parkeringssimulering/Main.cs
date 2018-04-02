@@ -385,14 +385,24 @@ namespace Parkeringssimulering
                                 Console.WriteLine("This is a car Object, Car nummer: " + c.id + " and im in " + pq.name);
                                 c.setTimeofParking(currentSimTime);
                                 Parkingspot ps = c.Destination;
-                                if (ps.name == )
+                                if (ps.name == "Kiwi")
                                 {
-                                    tuneVeienQueueNorth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til TuneVeienNord");
+                                    tuneVeienQueueSouth.Enqueue(c);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til TuneveienSør");
+                                }
+                                if (ps.name == "Politihuset")
+                                {
+                                    grålumVeienQueueSouth.Enqueue(c);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til GrålumveienSør");
+                                }
+                                else
+                                {
+                                    sykehusVeienQueueNorth.Enqueue(c);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til SykehusveienNord");
                                 }
                             }
                         }
-                        if (pq.name == "tuneVeienQueueNorth")
+                        if (pq.name == "SykehusveienNorth")
                         {
                             Car c = (Car)pq.carsInQueue.Peek();
                             int cCreationTime = c.getTimeOfCreation();
@@ -402,7 +412,22 @@ namespace Parkeringssimulering
                                 Console.WriteLine("This is a car Object, Car nummer: " + c.id + " and im in " + pq.name);
                                 c.setTimeofParking(currentSimTime);
                                 Parkingspot ps = c.Destination;
-                                
+                                if (ps.name == "Inspiria")
+                                {
+                                    tuneVeienQueueSouth.Enqueue(c);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til TuneveienSør");
+                                }
+                                if (ps.name == "Politihuset")
+                                {
+                                    grålumVeienQueueSouth.Enqueue(c);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til GrålumveienSør");
+                                }
+                                else
+                                {
+                                    sykehusVeienQueueNorth.Enqueue(c);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til SykehusveienNord");
+                                }
+
                             }
 
                         }
@@ -801,73 +826,5 @@ namespace Parkeringssimulering
             }
             return timeString;
         }
-
     }
-    //ArrayLists to connect Relations, setting.
-    //Related parkingspots first in PRIORITIZED ORDER
-    //Tune veien North and South
-
-    /*
-    relatedParkingSpotsTuneVeienNorth.Add(kiwi);
-    relatedParkingSpotsTuneVeienSouth.Add(kiwi);
-
-    //Gralumveien North and South
-    relatedParkingSpotsGralumVeienNorth.Add(politi);
-    relatedParkingSpotsGralumVeienNorth.Add(tuneSenter);
-    relatedParkingSpotsGralumVeienNorth.Add(adeccoAndIf);
-    relatedParkingSpotsGralumVeienNorth.Add(fagforbundet);
-    relatedParkingSpotsGralumVeienSouth.Add(politi);
-    relatedParkingSpotsGralumVeienSouth.Add(tuneSenter);
-    relatedParkingSpotsGralumVeienSouth.Add(adeccoAndIf);
-    relatedParkingSpotsGralumVeienSouth.Add(fagforbundet);
-
-    //E6 South
-    relatedParkingSpotsE6South.Add(null);
-
-    //Sykehusveien North
-    relatedParkingSpotsSykehusVeienNorth.Add(k5);
-    relatedParkingSpotsSykehusVeienNorth.Add(politi);
-    relatedParkingSpotsSykehusVeienNorth.Add(quality);
-    relatedParkingSpotsSykehusVeienNorth.Add(inspiria);
-    relatedParkingSpotsSykehusVeienNorth.Add(superland);
-    relatedParkingSpotsSykehusVeienNorth.Add(tuneSenter);
-    relatedParkingSpotsSykehusVeienNorth.Add(adeccoAndIf);
-    relatedParkingSpotsSykehusVeienNorth.Add(inspiriaBak);
-    relatedParkingSpotsSykehusVeienNorth.Add(fagforbundet);
-
-    //Sykehusveien South
-    relatedParkingSpotsSykehusVeienNorth.Add(k5);
-    relatedParkingSpotsSykehusVeienNorth.Add(politi);
-    relatedParkingSpotsSykehusVeienNorth.Add(quality);
-    relatedParkingSpotsSykehusVeienNorth.Add(inspiria);
-    relatedParkingSpotsSykehusVeienNorth.Add(superland);
-    relatedParkingSpotsSykehusVeienNorth.Add(tuneSenter);
-    relatedParkingSpotsSykehusVeienNorth.Add(adeccoAndIf);
-    relatedParkingSpotsSykehusVeienNorth.Add(inspiriaBak);
-    relatedParkingSpotsSykehusVeienNorth.Add(fagforbundet);
-
-    //Other Queues
-    //TuneVeienNorth
-    relatedRoadsTuneVeienNorth.Add(tuneVeienQueueSouth);
-    relatedRoadsTuneVeienNorth.Add(grålumVeienQueueSouth);
-    relatedRoadsTuneVeienNorth.Add(sykehusVeienQueueNorth);
-    //TuneVeienSouth
-    relatedRoadsTuneVeienSouth.Add(tuneVeienQueueNorth);
-    //GralumveienNorth
-    relatedRoadsGralumVeienNorth.Add(tuneVeienQueueSouth);
-    relatedRoadsGralumVeienNorth.Add(grålumVeienQueueSouth);
-    relatedRoadsGralumVeienNorth.Add(sykehusVeienQueueNorth);
-    //GralumVeienSouth
-    relatedRoadsGralumVeienSouth.Add(grålumVeienQueueNorth);
-    //E6South
-    relatedRoadsE6South.Add(tuneVeienQueueSouth);
-    relatedRoadsE6South.Add(grålumVeienQueueSouth);
-    relatedRoadsE6South.Add(sykehusVeienQueueNorth);
-    //SykehusVeienNorth
-    relatedRoadsSykehusVeienNorth.Add(sykehusVeienQueueSouth);
-    //SykehusVeienSouth
-    relatedRoadsSykehusVeienSouth.Add(tuneVeienQueueSouth);
-    relatedRoadsSykehusVeienSouth.Add(grålumVeienQueueSouth);
-    relatedRoadsSykehusVeienSouth.Add(sykehusVeienQueueNorth);
-    */
 }
