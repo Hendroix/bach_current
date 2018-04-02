@@ -128,6 +128,7 @@ namespace Parkeringssimulering
             {
                 int sleep = 1000;
                 int currentlyMade = 0;
+
                 //Intervall round 1
                 if (currentSimTime <= 30)
                 {
