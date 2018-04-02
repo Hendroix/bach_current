@@ -126,7 +126,7 @@ namespace Parkeringssimulering
             generateRandomNumbers();
             while (currentSimTime <= finalSimTime)
             {
-                int sleep = 1000;
+                int sleep = 1;
                 int currentlyMade = 0;
                 //Intervall round 1
                 if (currentSimTime <= 30)
@@ -386,6 +386,10 @@ namespace Parkeringssimulering
             Console.WriteLine("Totalt antall opptatte parkeringsplasser: " + takenSpaces);
             Console.WriteLine("Biler som ikke fant parkeringsplass:      " + counldtFindParking);
 
+            foreach(ParkingQueue p in parkingQueueArray)
+            {
+                Console.WriteLine(p.name + ": " + p.carsInQueue.Count);
+            }
 
             Console.ReadKey();
 
@@ -436,7 +440,7 @@ namespace Parkeringssimulering
         }
         static int getRandomNumberParking()
         {
-            int newRandom = s_Random.Next(0, 3);
+            int newRandom = s_Random.Next(0, 4);
             return newRandom;
         }
         static double getRandomNumberChance()
