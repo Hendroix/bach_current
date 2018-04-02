@@ -126,7 +126,7 @@ namespace Parkeringssimulering
             generateRandomNumbers();
             while (currentSimTime <= finalSimTime)
             {
-                int sleep = 1000;
+                int sleep = 10;
                 int currentlyMade = 0;
 
                 //Intervall round 1
@@ -136,7 +136,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 88)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.93f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -152,7 +152,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 136)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.8f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -165,10 +165,10 @@ namespace Parkeringssimulering
                  if (currentSimTime <= 114 && currentSimTime > 90)
                 {
                     if (currentlyMade == 0)
-                    {
+                    {   
                         if (totalAmountOfCars < 150)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.58f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -184,7 +184,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 292)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.15f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -200,7 +200,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 304)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.22f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -216,7 +216,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 385)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.25f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -232,7 +232,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 442)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.36f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -248,7 +248,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 480)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.58f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -264,7 +264,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 852)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(6.89f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -280,7 +280,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 894)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.7f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -296,7 +296,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1021)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.41f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -312,7 +312,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1037)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.18f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -328,7 +328,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1068)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.20f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -344,7 +344,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1080)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.11f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -360,7 +360,7 @@ namespace Parkeringssimulering
                     {
                         if (totalAmountOfCars < 1096)
                         {
-                            Console.WriteLine("Round: " + currentSimTime);
+                            Console.WriteLine("Round: " + currentSimTime + "Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.09f);
                             createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
                             Console.WriteLine();
@@ -368,12 +368,12 @@ namespace Parkeringssimulering
                         }
                     }
                 }
+
                 currentSimTime++;
             }
+
             takenSpaces = 0;
             freeSpaces = 0;
-
-
 
             foreach (Parkingspot p in parkingspotArray)
             {
@@ -688,6 +688,57 @@ namespace Parkeringssimulering
                 randomPointer2++;
             }
             return arrivingCars;
+        }
+        private static string calculateTimeFromIntervals(int currentSimTime)
+        {
+            string timeString = "";
+            int tmpTime = currentSimTime;
+            if (currentSimTime < 360)
+            {
+                timeString += "07:";
+                tmpTime = tmpTime / 6;
+                if (tmpTime < 10)
+                {
+                    timeString += "0" + tmpTime;
+                }
+                else
+                {
+                    timeString += tmpTime;
+                }
+            }
+            if (currentSimTime < 720 && currentSimTime >= 360)
+            {
+                timeString += "08:";
+                tmpTime = (tmpTime - 360) / 6;
+                if (tmpTime < 10)
+                {
+                    timeString += "0" + tmpTime;
+                }
+                else
+                {
+                    timeString += tmpTime;
+                }
+
+            }
+            if (currentSimTime < 1080 && currentSimTime >= 720)
+            {
+                timeString += "09:";
+                tmpTime = (tmpTime - 720) / 6;
+                if (tmpTime < 10)
+                {
+                    timeString += "0" + tmpTime;
+                }
+                else
+                {
+                    timeString += tmpTime;
+                }
+
+            }
+            if (currentSimTime == 1080)
+            {
+                timeString += "10:00";
+            }
+            return timeString;
         }
 
     }
