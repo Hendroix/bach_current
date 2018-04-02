@@ -94,12 +94,12 @@ namespace Parkeringssimulering
 
             //Parking queues...
             ParkingQueue e6South = new ParkingQueue("E6", e6Queue, relatedRoadsE6South, relatedParkingSpotsE6South);
-            ParkingQueue tuneVeienNorth = new ParkingQueue("Tuneveien", tuneVeienQueueNorth, relatedRoadsTuneVeienNorth, relatedParkingSpotsTuneVeienNorth);
-            ParkingQueue tuneVeienSouth = new ParkingQueue("Tuneveien", tuneVeienQueueSouth, relatedRoadsTuneVeienSouth, relatedParkingSpotsTuneVeienSouth);
-            ParkingQueue gralumVeienNorth = new ParkingQueue("Grålumveien", grålumVeienQueueNorth, relatedRoadsGralumVeienNorth, relatedParkingSpotsGralumVeienNorth);
-            ParkingQueue gralumVeienSouth = new ParkingQueue("Grålumveien", grålumVeienQueueSouth, relatedRoadsGralumVeienSouth, relatedParkingSpotsGralumVeienSouth);
-            ParkingQueue sykehusVeienNorth = new ParkingQueue("Sykehusveien", sykehusVeienQueueNorth, relatedRoadsSykehusVeienNorth, relatedParkingSpotsSykehusVeienNorth);
-            ParkingQueue sykehusVeienSouth = new ParkingQueue("Sykehusveien", sykehusVeienQueueSouth, relatedRoadsSykehusVeienSouth, relatedParkingSpotsSykehusVeienSouth);
+            ParkingQueue tuneVeienNorth = new ParkingQueue("TuneveienNorth", tuneVeienQueueNorth, relatedRoadsTuneVeienNorth, relatedParkingSpotsTuneVeienNorth);
+            ParkingQueue tuneVeienSouth = new ParkingQueue("TuneveienSouth", tuneVeienQueueSouth, relatedRoadsTuneVeienSouth, relatedParkingSpotsTuneVeienSouth);
+            ParkingQueue gralumVeienNorth = new ParkingQueue("GrålumveienNorth", grålumVeienQueueNorth, relatedRoadsGralumVeienNorth, relatedParkingSpotsGralumVeienNorth);
+            ParkingQueue gralumVeienSouth = new ParkingQueue("GrålumveienSouth", grålumVeienQueueSouth, relatedRoadsGralumVeienSouth, relatedParkingSpotsGralumVeienSouth);
+            ParkingQueue sykehusVeienNorth = new ParkingQueue("SykehusveienNorth", sykehusVeienQueueNorth, relatedRoadsSykehusVeienNorth, relatedParkingSpotsSykehusVeienNorth);
+            ParkingQueue sykehusVeienSouth = new ParkingQueue("SykehusveienSouth", sykehusVeienQueueSouth, relatedRoadsSykehusVeienSouth, relatedParkingSpotsSykehusVeienSouth);
 
             Parkingspot[] parkingspotArray = { inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet };
             ParkingQueue[] parkingQueueArray = { e6South, tuneVeienNorth, gralumVeienNorth, sykehusVeienSouth };
@@ -385,12 +385,46 @@ namespace Parkeringssimulering
                                 Console.WriteLine("This is a car Object, Car nummer: " + c.id + " and im in " + pq.name);
                                 c.setTimeofParking(currentSimTime);
                                 Parkingspot ps = c.Destination;
-                                if (pq.name == "E6")
+                                if (ps.name == )
                                 {
-                                    sykehusVeienQueueNorth.Enqueue(c);
+                                    tuneVeienQueueNorth.Enqueue(c);
                                     Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til TuneVeienNord");
                                 }
                             }
+                        }
+                        if (pq.name == "tuneVeienQueueNorth")
+                        {
+                            Car c = (Car)pq.carsInQueue.Peek();
+                            int cCreationTime = c.getTimeOfCreation();
+                            if (cCreationTime < currentSimTime)
+                            {
+                                pq.carsInQueue.Dequeue();
+                                Console.WriteLine("This is a car Object, Car nummer: " + c.id + " and im in " + pq.name);
+                                c.setTimeofParking(currentSimTime);
+                                Parkingspot ps = c.Destination;
+                                
+                            }
+
+                        }
+                        if (pq.name == "tuneVeienQueueSouth")
+                        {
+
+                        }
+                        if (pq.name == "grålumVeienQueueNorth")
+                        {
+
+                        }
+                        if (pq.name == "grålumVeienQueueSouth")
+                        {
+
+                        }
+                        if (pq.name == "sykehusVeienQueueSouth")
+                        {
+
+                        }
+                        if (pq.name == "sykehusVeienQueueNorth")
+                        {
+
                         }
                     }
 
