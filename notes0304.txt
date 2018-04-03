@@ -1,0 +1,10 @@
+Tidsbasert transportering over KM/t slik at vi kan beregne mer nøyaktig hvor lang tid det blir brukt på å finne parkering.
+Lage en Kø per 10 sekunders. Slik at vi har fullkontroll over tidsperspektivet.
+Tar tid å finne parkering.
+
+
+Krav til neste innlevering av hoveddokument.
+Andre versjon av hoveddokument: Her skal dere avtale med veileder hvor mye som skal være på plass. PDF'en sendes pr. epost til veileder og fagansvarlig, og lenkes opp på websiden deres.
+- Sarpsborg kommune og SIN må omskrives om.
+- Dokumentere simuleringen og Design
+- Bruke mye av resursene på på fulføring av resursene.

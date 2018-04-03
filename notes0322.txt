@@ -19,6 +19,6 @@ Smørbrødliste:
 4.3 -> 40 % av Femdagsbillistene har kortere vei enn 10 KM og vil bli tilbudt EL-sykkel.
 4.4 -> Ulrika vil at det også skal legges in passive "reduseringer" av parkeringsplassene på 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80% og 90%.
 5. Det skal eksprimenteres med diverse reduksjonsalternativer og modellen kan kompliseres med ulike elementer.
-6. Så undersøkes hypotesen: Nå har det blirr for mye Køer og for lange parkeringstider. La oss anta at de x% som har måttet bruke lengst til på å parkere velger å bruke andre transport alternativer.
+6. Så undersøkes hypotesen: Nå har det blir for mye Køer og for lange parkeringstider. La oss anta at de x% som har måttet bruke lengst til på å parkere velger å bruke andre transport alternativer.
 dermed reduseres bilbruken og så ser vi på hvor mange prosent som må til for å oppnå omtrent samme effektivitet som vi har i dag.
 7. Det lages grafisk framvisning av simuleringen.

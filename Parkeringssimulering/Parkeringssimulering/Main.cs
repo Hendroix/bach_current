@@ -127,7 +127,7 @@ namespace Parkeringssimulering
             //start of While simulation loop
             while (currentSimTime <= finalSimTime)
             {
-                int sleep = 10;
+                int sleep = 1000;
                 int currentlyMade = 0;
 
                 //Intervall round 1
