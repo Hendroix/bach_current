@@ -27,6 +27,7 @@ namespace Parkeringssimulering
         /// The time of parking
         /// </summary>
         public int timeOfParking, timeOfCreation;
+        public double timeOfQueuing;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Car" /> class.
@@ -40,6 +41,7 @@ namespace Parkeringssimulering
             Destination = destination;
             this.arrivalFrom = arrivalFrom;
             this.timeOfCreation = timeOfCreation;
+            this.timeOfQueuing = timeOfCreation;
         }
         /// <summary>
         /// Gets the time of parking.
@@ -56,6 +58,10 @@ namespace Parkeringssimulering
         public void setTimeofParking(int timeOfParking)
         {
             this.timeOfParking = timeOfParking;
+        }
+        public void setTimeOfQueuing(double timeOfQueuing)
+        {
+            this.timeOfQueuing = timeOfQueuing;
         }
 
     }

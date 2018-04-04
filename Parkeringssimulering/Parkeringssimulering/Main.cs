@@ -48,15 +48,10 @@ namespace Parkeringssimulering
             Queue tuneVeienQueueNorth_1 = new Queue();
             //Tuneveien South
             Queue tuneVeienQueueSouth = new Queue();
-            Queue tuneVeienQueueSouth_1= new Queue();
 
             //Grålumveien North
             Queue grålumVeienQueueNorth = new Queue();
             Queue grålumVeienQueueNorth_1 = new Queue();
-            //Grålumveien South
-            Queue grålumVeienQueueSouth = new Queue();
-            Queue grålumVeienQueueSouth_1 = new Queue();
-
 
             //Parkingspots that are avaliable to park on. There are some descrepencies here because we need more parkingspots to meet the 1200 cars that are arriving in this simulation.
             inspiria = new Parkingspot("Inspiria", 125, 0);
@@ -81,14 +76,10 @@ namespace Parkeringssimulering
             ParkingQueue tuneVeienNorth_1 = new ParkingQueue("TuneveienNorth_1", tuneVeienQueueNorth_1, 29);
             //Tuneveien South
             ParkingQueue tuneVeienSouth = new ParkingQueue("TuneveienSouth", tuneVeienQueueSouth, 29);
-            ParkingQueue tuneVeienSouth_1 = new ParkingQueue("TuneveienSouth_1", tuneVeienQueueSouth_1, 29);
 
             //Grålumveien North
             ParkingQueue gralumVeienNorth = new ParkingQueue("GrålumveienNorth", grålumVeienQueueNorth, 29);
             ParkingQueue gralumVeienNorth_1 = new ParkingQueue("GrålumveienNorth_1", grålumVeienQueueNorth_1, 29);
-            //Grålumveien South
-            ParkingQueue gralumVeienSouth = new ParkingQueue("GrålumveienSouth", grålumVeienQueueSouth, 29);
-            ParkingQueue gralumVeienSouth_1 = new ParkingQueue("GrålumveienSouth_1", grålumVeienQueueSouth_1, 29);
 
             //Sykehusveien North
             ParkingQueue sykehusVeienNorth = new ParkingQueue("SykehusveienNorth", sykehusVeienQueueNorth, 37);
@@ -105,7 +96,10 @@ namespace Parkeringssimulering
 
 
             Parkingspot[] parkingspotArray = { inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet };
-            ParkingQueue[] parkingQueueArray = { e6South, tuneVeienNorth, gralumVeienNorth, sykehusVeienSouth};
+            ParkingQueue[] parkingQueueArrayArrivingCars = { e6South, tuneVeienNorth, gralumVeienNorth, sykehusVeienSouth };
+            ParkingQueue[] parkingQueueArrayCheck = { e6South, tuneVeienNorth, tuneVeienNorth_1, tuneVeienSouth, gralumVeienNorth, gralumVeienNorth_1,
+                sykehusVeienNorth, sykehusVeienNorth_1, sykehusVeienNorth_2, sykehusVeienNorth_3, sykehusVeienNorth_4, sykehusVeienSouth, sykehusVeienSouth_1, sykehusVeienSouth_2,
+                sykehusVeienSouth_3, sykehusVeienSouth_4 };
 
             printTotalParkingInfo(parkingspotArray);
 
@@ -129,7 +123,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.93f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -145,7 +139,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.8f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -161,7 +155,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.58f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -177,7 +171,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.15f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -193,7 +187,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.22f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -209,7 +203,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(2.25f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -225,7 +219,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.36f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -241,7 +235,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.58f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -257,7 +251,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(6.89f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -273,7 +267,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.7f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -289,7 +283,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(1.41f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -305,7 +299,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.18f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -321,7 +315,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.20f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -337,7 +331,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.11f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -353,7 +347,7 @@ namespace Parkeringssimulering
                         {
                             Console.WriteLine("Round: " + currentSimTime + " Time: " + calculateTimeFromIntervals(currentSimTime));
                             int carsToBeMade = getArrivingCarsRandom(0.09f);
-                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArray);
+                            createAndGivePurposeToCars(carsToBeMade, currentlyMade, parkingQueueArrayArrivingCars);
                             Console.WriteLine();
                             System.Threading.Thread.Sleep(delaySleepTime);
                         }
@@ -361,265 +355,57 @@ namespace Parkeringssimulering
                 }
 
 
-                foreach (ParkingQueue pq in parkingQueueArray)
+                foreach (ParkingQueue pq in parkingQueueArrayCheck)
                 {
-                    if (pq.carsInQueue.Count > 0)
+                    //Fra E6
+                    if (pq.name == "E6" && pq.carsInQueue.Count > 0)
                     {
-                        if (pq.name == "E6")
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
                         {
-                            Car c = (Car)pq.carsInQueue.Peek();
-                            int cCreationTime = c.getTimeOfCreation();
-                            if (cCreationTime < currentSimTime)
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Kiwi/Tuneveien
+                            if (ps.name == "Kiwi")
                             {
-                                pq.carsInQueue.Dequeue();
-                                c.setTimeofParking(currentSimTime);
-                                Parkingspot ps = c.Destination;
-                                if (ps.name == "Kiwi")
-                                {
-                                    tuneVeienQueueSouth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til TuneveienSør");
-                                }
-                                if (ps.name == "Politihuset")
-                                {
-                                    grålumVeienQueueSouth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til GrålumveienSør");
-                                }
-                                else
-                                {
-                                    sykehusVeienQueueNorth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til SykehusveienNord");
-                                }
+                                tuneVeienSouth.carsInQueue.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til " + tuneVeienSouth.name);
                             }
-                        }
-                        if (pq.name == "SykehusveienNorth")
-                        {
-                            Car c = (Car)pq.carsInQueue.Peek();
-                            int cCreationTime = c.getTimeOfCreation();
-                            if (cCreationTime < currentSimTime)
+                            //all annen trafikk skal til sykehusveien
+                            else
                             {
-                                pq.carsInQueue.Dequeue();
-                                c.setTimeofParking(currentSimTime);
-                                Parkingspot ps = c.Destination;
-                                if (ps.name == "Inspiria")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på inspiria");
-                                }
-                                if (ps.name == "Quality")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Quality");
-                                }
-                                if(ps.name == "Inspiria Bak")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på inspiria bak");
-                                }
-                                if(ps.name == "Superland")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Superland");
-                                }
-                                if(ps.name == "Caverion")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Caverion");
-                                }
-                                if(ps.name == "K5")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på K5");
-                                }
-                                if(ps.name == "Adecco and If")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Adecco/If");
-                                }
-                                else
-                                {
-                                    sykehusVeienQueueSouth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra sykehusVeienNord til SykehusveienSør");
-                                }
-
-                            }
-
-                        }
-                        if (pq.name == "SykehusveienSouth")
-                        {
-                            Car c = (Car)pq.carsInQueue.Peek();
-                            int cCreationTime = c.getTimeOfCreation();
-                            if (cCreationTime < currentSimTime)
-                            {
-                                pq.carsInQueue.Dequeue();
-                                c.setTimeofParking(currentSimTime);
-                                Parkingspot ps = c.Destination;
-                                if (ps.name == "Inspiria")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på inspiria");
-                                }
-                                if (ps.name == "Quality")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Quality");
-                                }
-                                if (ps.name == "Inspiria Bak")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på inspiria bak");
-                                }
-                                if (ps.name == "Superland")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Superland");
-                                }
-                                if (ps.name == "Caverion")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Caverion");
-                                }
-                                if (ps.name == "K5")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på K5");
-                                }
-                                if (ps.name == "Adecco and If")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Adecco/If");
-                                }
-                                if (ps.name == "Kiwi")
-                                {
-                                    tuneVeienQueueNorth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra sykehusVeiensør til TuneveienNord");
-                                }
-                                else
-                                {
-                                    grålumVeienQueueSouth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra sykehusVeiensør til GrålumVeienSør");
-                                }
-
-                            }
-                        }
-                        if (pq.name == "GrålumveienSouth")
-                        {
-                            Car c = (Car)pq.carsInQueue.Peek();
-                            int cCreationTime = c.getTimeOfCreation();
-                            if (cCreationTime < currentSimTime)
-                            {
-                                pq.carsInQueue.Dequeue();
-                                c.setTimeofParking(currentSimTime);
-                                Parkingspot ps = c.Destination;
-                                if (ps.name == "Politihuset")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Politihuset");
-                                }
-                                if (ps.name == "Fagforbundet")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på fagforbundet");
-                                }
-                                if (ps.name == "Tune Senter")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Tune Senter");
-                                }
-                                else
-                                {
-                                    grålumVeienQueueNorth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra GrålumVeienSør til GrålumVeienNord");
-                                }
-
-                            }
-                        }
-                        if (pq.name == "GrålumveienNorth")
-                        {
-                            Car c = (Car)pq.carsInQueue.Peek();
-                            int cCreationTime = c.getTimeOfCreation();
-                            if (cCreationTime < currentSimTime)
-                            {
-                                pq.carsInQueue.Dequeue();
-                                c.setTimeofParking(currentSimTime);
-                                Parkingspot ps = c.Destination;
-                                if (ps.name == "Politihuset")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Politihuset");
-                                }
-                                if (ps.name == "Fagforbundet")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på fagforbundet");
-                                }
-                                if (ps.name == "Tune Senter")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Tune Senter");
-                                }
-                                if (ps.name == "Kiwi")
-                                {
-                                    tuneVeienQueueSouth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra GrålumVeienNord til TuneveienSør");
-                                }
-
-                                else
-                                {
-                                    sykehusVeienQueueNorth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra GrålumVeienNord til SykehusveienNord");
-                                }
-                            }
-                        }
-                        if (pq.name == "TuneveienSouth")
-                        {
-
-                            Car c = (Car)pq.carsInQueue.Peek();
-                            int cCreationTime = c.getTimeOfCreation();
-                            if (cCreationTime < currentSimTime)
-                            {
-                                pq.carsInQueue.Dequeue();
-                                c.setTimeofParking(currentSimTime);
-                                Parkingspot ps = c.Destination;
-                                if(ps.name == "Kiwi")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Kiwi");
-                                }
-                                else
-                                {
-                                    tuneVeienQueueNorth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra TuneveienSør til TuneveienNord");
-                                }
-                            }
-                        }
-                        if (pq.name == "TuneveienNorth")
-                        {
-                            Car c = (Car)pq.carsInQueue.Peek();
-                            int cCreationTime = c.getTimeOfCreation();
-                            if (cCreationTime < currentSimTime)
-                            {
-                                pq.carsInQueue.Dequeue();
-                                c.setTimeofParking(currentSimTime);
-                                Parkingspot ps = c.Destination;
-                                if (ps.name == "Kiwi")
-                                {
-                                    ps.listOfCars.Add(c);
-                                    Console.WriteLine("Bil " + c.id + "Har Parkert på Kiwi");
-                                }
-                                if(ps.name == "Politihuset" || ps.name == "Fagforbundet" || ps.name == "Tune Senter")
-                                {
-                                    grålumVeienQueueSouth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra tuneVeienSør til TuneveienSør");
-                                }
-                                else
-                                {
-                                    sykehusVeienQueueNorth.Enqueue(c);
-                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra TuneveienNord til SykehusveienNord");
-                                }
+                                sykehusVeienQueueNorth.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til SykehusveienNord");
                             }
                         }
                     }
-
+                    //Fra Tuneveien Sør
+                    if (pq.name == "TuneveienSouth" && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Kiwi/Tuneveien
+                            if (ps.name == "Kiwi" && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                tuneVeienNorth_1.carsInQueue.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra Kiwi til TuneveienNord");
+                            }
+                        }
+                    }
                 }
 
                 //End of while simulation loop
