@@ -105,7 +105,7 @@ namespace Parkeringssimulering
 
 
             Parkingspot[] parkingspotArray = { inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet };
-            ParkingQueue[] parkingQueueArray = { e6South, tuneVeienNorth, gralumVeienNorth, sykehusVeienSouth };
+            ParkingQueue[] parkingQueueArray = { e6South, tuneVeienNorth, gralumVeienNorth, sykehusVeienSouth};
 
             printTotalParkingInfo(parkingspotArray);
 
@@ -636,11 +636,11 @@ namespace Parkeringssimulering
         /// <param name="wantedAmountOfCars">The wanted amount of cars.</param>
         /// <param name="alreadyMadeCars">The already made cars.</param>
         /// <param name="listOfParkingsSpots">The list of parkings spots.</param>
-        public static void createAndGivePurposeToCars(int wantedAmountOfCars, int alreadyMadeCars, ParkingQueue[] listOfParkingsSpots)
+        public static void createAndGivePurposeToCars(int wantedAmountOfCars, int alreadyMadeCars, ParkingQueue[] listOfParkingsQueues)
         {
             while (wantedAmountOfCars > alreadyMadeCars)
             {
-                makeCar(randomArray[randomPointer], getQueue(listOfParkingsSpots));
+                makeCar(randomArray[randomPointer], getQueue(listOfParkingsQueues));
                 alreadyMadeCars++;
                 totalAmountOfCars++;
             }
