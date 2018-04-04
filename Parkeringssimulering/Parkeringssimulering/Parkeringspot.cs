@@ -13,33 +13,24 @@ namespace Parkeringssimulering
     public class Parkingspot
     {
         /// <summary>
-        /// The name
+        /// The name of the parkingspot.
         /// </summary>
         public String name;
         /// <summary>
-        /// The total parking spaces
+        /// the variables used for this class: takenSpaces, freeSpaces and totalSpaces.
         /// </summary>
-        public int totalParkingSpaces;
+        public int takenSpaces, freeSpaces, totalParkingSpaces;
         /// <summary>
-        /// The taken spaces
-        /// </summary>
-        public int takenSpaces;
-        /// <summary>
-        /// The free spaces
-        /// </summary>
-        public int freeSpaces;
-
-        /// <summary>
-        /// The list of cars
+        /// The list of cars that are parked in this parkingspot.
         /// </summary>
         public ArrayList listOfCars = new ArrayList();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Parkingspot" /> class.
         /// </summary>
-        /// <param name="name">The name.</param>
-        /// <param name="totalParkingSpaces">The total parking spaces.</param>
-        /// <param name="takenSpaces">The taken spaces.</param>
+        /// <param name="name">The name of the parkingspot.</param>
+        /// <param name="totalParkingSpaces">The totalparking spaces.</param>
+        /// <param name="takenSpaces">The amount taken parkingspots.</param>
         public Parkingspot(string name, int totalParkingSpaces, int takenSpaces)
         {
             this.name = name;
@@ -48,7 +39,7 @@ namespace Parkeringssimulering
             this.freeSpaces = totalParkingSpaces - listOfCars.Count;
         }
         /// <summary>
-        /// Gets the taken spaces.
+        /// Gets the amount of cars currently in this parkingspot.
         /// </summary>
         /// <returns></returns>
         public int getTakenSpaces()
@@ -56,25 +47,25 @@ namespace Parkeringssimulering
             return listOfCars.Count;
         }
         /// <summary>
-        /// Adds the taken spaces.
-        /// </summary>
-        public void addTakenSpaces()
-        {
-            if (freeSpaces > 0)
-            this.takenSpaces++;
-        }
-        /// <summary>
-        /// Gets the free spaces.
+        /// Gets the free parkingspaces.
         /// </summary>
         /// <returns></returns>
         public int getFreeSpaces()
         {
             return freeSpaces;
         }
+        /// <summary>
+        /// Gets the total parkingspaces.
+        /// </summary>
+        /// <returns></returns>
         public int getTotalParkingSpaces()
         {
             return totalParkingSpaces;
         }
+        /// <summary>
+        /// Returns true if the parkingspot is available
+        /// </summary>
+        /// <returns></returns>
         public bool Free()
         {
             if (takenSpaces < totalParkingSpaces)

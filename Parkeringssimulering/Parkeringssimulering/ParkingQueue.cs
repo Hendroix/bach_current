@@ -21,25 +21,36 @@ namespace Parkeringssimulering
         /// </summary>
         public Queue carsInQueue = new Queue();
         /// <summary>
-        /// The related roads
+        /// The maximum possible cars in this queue
         /// </summary>
-        public List<Queue> relatedRoads = new List<Queue>();
+        public int maxPossibleCarsInQueue;
         /// <summary>
-        /// The related parking spots
-        /// </summary>
-        public List<Parkingspot> relatedParkingSpots = new List<Parkingspot>();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ParkingQueue"/> class.
+        /// Initializes a new instance of the <see cref="ParkingQueue" /> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="carsInQueue">The cars in queue.</param>
-        /// <param name="relatedRoads">The related roads.</param>
-        /// <param name="parkingSpots">The parking spots.</param>
-        public ParkingQueue(string name, Queue carsInQueue)
+        /// <param name="maxPossibleCarsInQueue">The maximum possible cars in queue.</param>
+        public ParkingQueue(string name, Queue carsInQueue, int maxPossibleCarsInQueue)
         {
             this.name = name;
             this.carsInQueue = carsInQueue;
+            this.maxPossibleCarsInQueue = maxPossibleCarsInQueue;
+        }
+        /// <summary>
+        /// Checks if possible to place more cars in this queue.
+        /// </summary>
+        /// <returns></returns>
+        public bool checkIfFree()
+        {
+            if (carsInQueue.Count >= maxPossibleCarsInQueue)
+            {
+                return false;
+
+            }
+            else
+            {
+                return true;
+            }
         }
 
     }
