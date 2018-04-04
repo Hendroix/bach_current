@@ -73,14 +73,37 @@ namespace Parkeringssimulering
 
 
             //Parking queues...
+            //E6
             ParkingQueue e6South = new ParkingQueue("E6", e6Queue);
+
+            //Tuneveien North
             ParkingQueue tuneVeienNorth = new ParkingQueue("TuneveienNorth", tuneVeienQueueNorth);
+            ParkingQueue tuneVeienNorth_1 = new ParkingQueue("TuneveienNorth", tuneVeienQueueNorth_1);
+            //Tuneveien South
             ParkingQueue tuneVeienSouth = new ParkingQueue("TuneveienSouth", tuneVeienQueueSouth);
+            ParkingQueue tuneVeienSouth_1 = new ParkingQueue("TuneveienSouth", tuneVeienQueueSouth_1);
+
+            //Grålumveien North
             ParkingQueue gralumVeienNorth = new ParkingQueue("GrålumveienNorth", grålumVeienQueueNorth);
+            ParkingQueue gralumVeienNorth_1 = new ParkingQueue("GrålumveienNorth", grålumVeienQueueNorth_1);
+            //Grålumveien South
             ParkingQueue gralumVeienSouth = new ParkingQueue("GrålumveienSouth", grålumVeienQueueSouth);
+            ParkingQueue gralumVeienSouth_1 = new ParkingQueue("GrålumveienSouth", grålumVeienQueueSouth_1);
+
+            //Sykehusveien North
             ParkingQueue sykehusVeienNorth = new ParkingQueue("SykehusveienNorth", sykehusVeienQueueNorth);
+            ParkingQueue sykehusVeienNorth_1 = new ParkingQueue("SykehusveienNorth", sykehusVeienQueueNorth_1);
+            ParkingQueue sykehusVeienNorth_2 = new ParkingQueue("SykehusveienNorth", sykehusVeienQueueNorth_2);
+            ParkingQueue sykehusVeienNorth_3 = new ParkingQueue("SykehusveienNorth", sykehusVeienQueueNorth_3);
+            ParkingQueue sykehusVeienNorth_4 = new ParkingQueue("SykehusveienNorth", sykehusVeienQueueNorth_4);
+            //Sykehusveien South
             ParkingQueue sykehusVeienSouth = new ParkingQueue("SykehusveienSouth", sykehusVeienQueueSouth);
-            
+            ParkingQueue sykehusVeienSouth_1 = new ParkingQueue("SykehusveienSouth", sykehusVeienQueueSouth_1);
+            ParkingQueue sykehusVeienSouth_2 = new ParkingQueue("SykehusveienSouth", sykehusVeienQueueSouth_2);
+            ParkingQueue sykehusVeienSouth_3 = new ParkingQueue("SykehusveienSouth", sykehusVeienQueueSouth_3);
+            ParkingQueue sykehusVeienSouth_4 = new ParkingQueue("SykehusveienSouth", sykehusVeienQueueSouth_4);
+
+
             Parkingspot[] parkingspotArray = { inspiria, inspiriaBak, superland, quality, kiwi, politi, caverion, k5, tuneSenter, adeccoAndIf, fagforbundet };
             ParkingQueue[] parkingQueueArray = { e6South, tuneVeienNorth, gralumVeienNorth, sykehusVeienSouth };
 
