@@ -106,7 +106,7 @@ namespace Parkeringssimulering
             //Defines the starting criterias
             currentSimTime = 1;
             finalSimTime = 1080;
-            delaySleepTime = 10;
+            delaySleepTime = 0;
             currentlyMade = 0;
 
             generateRandomNumbers();
@@ -358,7 +358,7 @@ namespace Parkeringssimulering
                 foreach (ParkingQueue pq in parkingQueueArrayCheck)
                 {
                     //Fra E6
-                    if (pq.name == "E6" && pq.carsInQueue.Count > 0)
+                    if (pq.name == e6South.name && pq.carsInQueue.Count > 0)
                     {
                         Car c = (Car)pq.carsInQueue.Peek();
                         if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
@@ -366,31 +366,25 @@ namespace Parkeringssimulering
                             c.setTimeofParking(currentSimTime);
                             Parkingspot ps = c.Destination;
                             //Til Kiwi/Tuneveien
-                            if (ps.name == "Kiwi")
+                            if (ps.name == kiwi.name && tuneVeienSouth.checkIfFree() == true)
                             {
-                                if (tuneVeienSouth.checkIfFree() == true)
-                                {
                                     pq.carsInQueue.Dequeue();
                                     tuneVeienSouth.carsInQueue.Enqueue(c);
                                     c.setTimeOfQueuing(currentSimTime);
                                     Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til " + tuneVeienSouth.name);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Køen jeg skal til er full, " + "TuneVeienSør: " + tuneVeienSouth.carsInQueue.Count + "/" + tuneVeienSouth.maxPossibleCarsInQueue);
-                                }
                             }
                             //all annen trafikk fra E6 skal til sykehusveien
                             else
                             {
-                                sykehusVeienQueueNorth.Enqueue(c);
+                                pq.carsInQueue.Dequeue();
+                                sykehusVeienNorth.carsInQueue.Enqueue(c);
                                 c.setTimeOfQueuing(currentSimTime);
-                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til SykehusveienNord");
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til " + sykehusVeienNorth.name);
                             }
                         }
                     }
                     //Fra Tuneveien Sør
-                    if (pq.name == "TuneveienSouth" && pq.carsInQueue.Count > 0)
+                    if (pq.name == tuneVeienSouth.name && pq.carsInQueue.Count > 0)
                     {
                         Car c = (Car)pq.carsInQueue.Peek();
                         if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
@@ -399,7 +393,7 @@ namespace Parkeringssimulering
                             c.setTimeofParking(currentSimTime);
                             Parkingspot ps = c.Destination;
                             //Til Kiwi/Tuneveien
-                            if (ps.name == "Kiwi" && ps.Free())
+                            if (ps.name == kiwi.name && ps.Free())
                             {
                                 ps.listOfCars.Add(c);
                                 c.setTimeOfQueuing(currentSimTime + 1);
@@ -407,9 +401,425 @@ namespace Parkeringssimulering
                             }
                             else
                             {
-                                tuneVeienNorth_1.carsInQueue.Enqueue(c);
+                                if (tuneVeienNorth_1.checkIfFree() == true)
+                                {
+                                    tuneVeienNorth_1.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra TuneveienSør til " + tuneVeienNorth_1.name);
+                                }
+                            }
+                        }
+                    }
+
+                    //Fra TuneveienNord
+                    if (pq.name == tuneVeienNorth.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Kiwi
+                            if (ps.name == kiwi.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                if (tuneVeienNorth_1.checkIfFree() == true)
+                                {
+                                    tuneVeienNorth_1.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra TuneveienNord til " + tuneVeienNorth_1.name);
+                                }
+                            }
+                        }
+                    }
+                    //Fra TuneveienNord_1
+                    if (pq.name == tuneVeienNorth_1.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til SykehusveienNord
+                            if (sykehusVeienNorth.checkIfFree() == true)
+                            {
+                                pq.carsInQueue.Dequeue();
+                                sykehusVeienNorth.carsInQueue.Enqueue(c);
                                 c.setTimeOfQueuing(currentSimTime);
-                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra Kiwi til TuneveienNord");
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + pq.name + " til " + sykehusVeienNorth.name);
+                            }
+                        }
+                    }
+                    //Fra grålumveien
+                    if (pq.name == gralumVeienNorth.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til grålumveienNord_1
+                            if (gralumVeienNorth_1.checkIfFree() == true)
+                            {
+                                pq.carsInQueue.Dequeue();
+                                gralumVeienNorth_1.carsInQueue.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + gralumVeienNorth.name + " til " + gralumVeienNorth_1.name);
+                            }
+                        }
+                    }
+                    //Fra grålumveienNord_1
+                    if (pq.name == gralumVeienNorth_1.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til sykehusveien
+                            if (sykehusVeienNorth.checkIfFree() == true)
+                            {
+                                pq.carsInQueue.Dequeue();
+                                sykehusVeienNorth.carsInQueue.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + gralumVeienNorth_1.name + " til " + sykehusVeienNorth.name);
+                            }
+                        }
+                    }
+                    //Fra sykehusveienNord
+                    if (pq.name == sykehusVeienNorth.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Politihuset
+                            if (ps.name == politi.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Quality
+                            if (ps.name == quality.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Superland
+                            if (ps.name == superland.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til If og Adecco
+                            if (ps.name == adeccoAndIf.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Tunesenteret
+                            if (ps.name == tuneSenter.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Fagforbundet
+                            if (ps.name == fagforbundet.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                if (sykehusVeienNorth_1.checkIfFree() == true)
+                                {
+                                    sykehusVeienNorth_1.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienNorth.name + " til " + sykehusVeienNorth_1.name);
+                                }
+                            }
+                        }
+                    }
+                    //Fra sykehusveienNord_1
+                    if (pq.name == sykehusVeienNorth_1.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Inspiria
+                            if (ps.name == inspiria.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                if (sykehusVeienNorth_2.checkIfFree() == true)
+                                {
+                                    sykehusVeienNorth_2.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienNorth.name + " til " + sykehusVeienNorth_1.name);
+                                }
+                            }
+                        }
+                    }
+                    //Fra SykehusveienNorth_2
+                    if (pq.name == sykehusVeienNorth_2.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til sykehusveienNorth_3
+                            if (sykehusVeienNorth_3.checkIfFree() == true)
+                            {
+                                pq.carsInQueue.Dequeue();
+                                sykehusVeienNorth_3.carsInQueue.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienNorth_2.name + " til " + sykehusVeienNorth_3.name);
+                            }
+                        }
+                    }
+                    //Fra sykehusveienNord_3
+                    if (pq.name == sykehusVeienNorth_3.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Inspiria bak
+                            if (ps.name == inspiriaBak.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Caverion
+                            if (ps.name == caverion.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til k5
+                            if (ps.name == k5.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                if (sykehusVeienNorth_4.checkIfFree() == true)
+                                {
+                                    sykehusVeienNorth_4.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienNorth_3.name + " til " + sykehusVeienNorth_4.name);
+                                }
+                            }
+                        }
+                    }
+                    //Fra sykehusveienNord_4
+                    if (pq.name == sykehusVeienNorth_3.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            if (sykehusVeienSouth.checkIfFree() == true)
+                            {
+                            sykehusVeienSouth.carsInQueue.Enqueue(c);
+                            c.setTimeOfQueuing(currentSimTime);
+                            Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienNorth_4.name + " til " + sykehusVeienSouth.name);
+                            }
+                        }
+                    }
+                    //Fra sykehusveienSør
+                    if (pq.name == sykehusVeienSouth.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Inspiria bak
+                            if (ps.name == inspiriaBak.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Caverion
+                            if (ps.name == caverion.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til k5
+                            if (ps.name == k5.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                if (sykehusVeienSouth_1.checkIfFree() == true)
+                                {
+                                    sykehusVeienSouth_1.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienSouth.name + " til " + sykehusVeienSouth_1.name);
+                                }
+                            }
+                        }
+                    }
+                    //Fra sykehusveienSør1
+                    if (pq.name == sykehusVeienSouth_1.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            if (sykehusVeienSouth_2.checkIfFree() == true)
+                            {
+                                sykehusVeienSouth_2.carsInQueue.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienSouth_1.name + " til " + sykehusVeienSouth_2.name);
+                            }
+
+                        }
+                    }
+                    //Fra sykehusveienSær_2
+                    if (pq.name == sykehusVeienSouth_2.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Inspiria
+                            if (ps.name == inspiria.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                if (sykehusVeienNorth_3.checkIfFree() == true)
+                                {
+                                    sykehusVeienNorth_3.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienNorth_2.name + " til " + sykehusVeienNorth_3.name);
+                                }
+                            }
+                        }
+                    }
+                    //Fra sykehusveienSouth
+                    if (pq.name == sykehusVeienSouth_3.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            pq.carsInQueue.Dequeue();
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Politihuset
+                            if (ps.name == politi.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Quality
+                            if (ps.name == quality.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Superland
+                            if (ps.name == superland.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til If og Adecco
+                            if (ps.name == adeccoAndIf.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Tunesenteret
+                            if (ps.name == tuneSenter.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Til Fagforbundet
+                            if (ps.name == fagforbundet.name && ps.Free())
+                            {
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            else
+                            {
+                                if (sykehusVeienSouth_3.checkIfFree() == true)
+                                {
+                                    sykehusVeienNorth_4.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra " + sykehusVeienNorth_3.name + " til " + sykehusVeienNorth_4.name);
+                                }
+                            }
+                        }
+                    }
+                    //Fra sykehusveienSør_4
+                    if (pq.name == sykehusVeienSouth_4.name && pq.carsInQueue.Count > 0)
+                    {
+                        Car c = (Car)pq.carsInQueue.Peek();
+                        if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
+                        {
+                            c.setTimeofParking(currentSimTime);
+                            Parkingspot ps = c.Destination;
+                            //Til Kiwi/Tuneveien
+                            if (ps.name == kiwi.name && tuneVeienSouth.checkIfFree() == true)
+                            {
+                                pq.carsInQueue.Dequeue();
+                                tuneVeienSouth.carsInQueue.Enqueue(c);
+                                c.setTimeOfQueuing(currentSimTime);
+                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til " + tuneVeienSouth.name);
                             }
                         }
                     }
