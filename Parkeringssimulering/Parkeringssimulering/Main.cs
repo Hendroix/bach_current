@@ -31,31 +31,31 @@ namespace Parkeringssimulering
             Queue e6Queue = new Queue();
             
             //Sykehusveien North
+            Queue sykehusVeienQueueNorth = new Queue();
             Queue sykehusVeienQueueNorth_1 = new Queue();
             Queue sykehusVeienQueueNorth_2 = new Queue();
             Queue sykehusVeienQueueNorth_3 = new Queue();
             Queue sykehusVeienQueueNorth_4 = new Queue();
-            Queue sykehusVeienQueueNorth_5 = new Queue();
             //Sykehusveien South
+            Queue sykehusVeienQueueSouth = new Queue();
             Queue sykehusVeienQueueSouth_1 = new Queue();
             Queue sykehusVeienQueueSouth_2 = new Queue();
-            Queue sykehusVeienQueueSouth_3 = new Queue();
-            Queue sykehusVeienQueueSouth_4= new Queue();
-            Queue sykehusVeienQueueSouth_5 = new Queue();
+            Queue sykehusVeienQueueSouth_3= new Queue();
+            Queue sykehusVeienQueueSouth_4 = new Queue();
 
             //Tuneveien North
+            Queue tuneVeienQueueNorth = new Queue();
             Queue tuneVeienQueueNorth_1 = new Queue();
-            Queue tuneVeienQueueNorth_2 = new Queue();
             //Tuneveien South
-            Queue tuneVeienQueueSouth_1 = new Queue();
-            Queue tuneVeienQueueSouth_2= new Queue();
+            Queue tuneVeienQueueSouth = new Queue();
+            Queue tuneVeienQueueSouth_1= new Queue();
 
             //Grålumveien North
+            Queue grålumVeienQueueNorth = new Queue();
             Queue grålumVeienQueueNorth_1 = new Queue();
-            Queue grålumVeienQueueNorth_2 = new Queue();
             //Grålumveien South
+            Queue grålumVeienQueueSouth = new Queue();
             Queue grålumVeienQueueSouth_1 = new Queue();
-            Queue grålumVeienQueueSouth_2 = new Queue();
 
 
             //Parkingspots that are avaliable to park on. There are some descrepencies here because we need more parkingspots to meet the 1200 cars that are arriving in this simulation.
