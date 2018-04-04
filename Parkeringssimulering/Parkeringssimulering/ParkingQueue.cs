@@ -42,14 +42,14 @@ namespace Parkeringssimulering
         /// <returns></returns>
         public bool checkIfFree()
         {
-            if (carsInQueue.Count >= maxPossibleCarsInQueue)
+            if (carsInQueue.Count < maxPossibleCarsInQueue)
             {
-                return false;
+                return true;
 
             }
             else
             {
-                return true;
+                return false;
             }
         }
 

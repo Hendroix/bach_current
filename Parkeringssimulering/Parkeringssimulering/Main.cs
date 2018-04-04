@@ -363,17 +363,24 @@ namespace Parkeringssimulering
                         Car c = (Car)pq.carsInQueue.Peek();
                         if (c.getTimeOfCreation() < currentSimTime && c.timeOfQueuing < currentSimTime)
                         {
-                            pq.carsInQueue.Dequeue();
                             c.setTimeofParking(currentSimTime);
                             Parkingspot ps = c.Destination;
                             //Til Kiwi/Tuneveien
                             if (ps.name == "Kiwi")
                             {
-                                tuneVeienSouth.carsInQueue.Enqueue(c);
-                                c.setTimeOfQueuing(currentSimTime);
-                                Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til " + tuneVeienSouth.name);
+                                if (tuneVeienSouth.checkIfFree() == true)
+                                {
+                                    pq.carsInQueue.Dequeue();
+                                    tuneVeienSouth.carsInQueue.Enqueue(c);
+                                    c.setTimeOfQueuing(currentSimTime);
+                                    Console.WriteLine("Bil " + c.id + " Flyttet seg fra E6 til " + tuneVeienSouth.name);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Køen jeg skal til er full, " + "TuneVeienSør: " + tuneVeienSouth.carsInQueue.Count + "/" + tuneVeienSouth.maxPossibleCarsInQueue);
+                                }
                             }
-                            //all annen trafikk skal til sykehusveien
+                            //all annen trafikk fra E6 skal til sykehusveien
                             else
                             {
                                 sykehusVeienQueueNorth.Enqueue(c);
