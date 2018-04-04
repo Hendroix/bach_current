@@ -45,7 +45,7 @@ namespace Parkeringssimulering
             this.name = name;
             this.totalParkingSpaces = totalParkingSpaces;
             this.takenSpaces = takenSpaces;
-            this.freeSpaces = totalParkingSpaces - listOfCars.Count;
+            this.freeSpaces = totalParkingSpaces - takenSpaces;
         }
         /// <summary>
         /// Gets the taken spaces.
@@ -53,7 +53,7 @@ namespace Parkeringssimulering
         /// <returns></returns>
         public int getTakenSpaces()
         {
-            return listOfCars.Count;
+            return takenSpaces;
         }
         /// <summary>
         /// Adds the taken spaces.
