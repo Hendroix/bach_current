@@ -410,7 +410,6 @@ namespace Parkeringssimulering
                             }
                         }
                     }
-
                     //Fra TuneveienNord
                     if (pq.name == tuneVeienNorth.name && pq.carsInQueue.Count > 0)
                     {
