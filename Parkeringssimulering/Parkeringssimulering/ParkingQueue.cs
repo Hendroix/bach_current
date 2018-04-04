@@ -36,12 +36,10 @@ namespace Parkeringssimulering
         /// <param name="carsInQueue">The cars in queue.</param>
         /// <param name="relatedRoads">The related roads.</param>
         /// <param name="parkingSpots">The parking spots.</param>
-        public ParkingQueue(string name, Queue carsInQueue, List<Queue> relatedRoads, List<Parkingspot> parkingSpots)
+        public ParkingQueue(string name, Queue carsInQueue)
         {
             this.name = name;
             this.carsInQueue = carsInQueue;
-            this.relatedRoads = relatedRoads;
-            this.relatedParkingSpots = parkingSpots;
         }
 
     }
