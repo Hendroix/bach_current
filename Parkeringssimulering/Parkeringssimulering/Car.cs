@@ -18,7 +18,7 @@ namespace Parkeringssimulering
         /// <summary>
         /// The destination
         /// </summary>
-        public Parkingspot Destination;
+        public Parkingspot Destination, originalDestination;
         /// <summary>
         /// The arrival from
         /// </summary>
@@ -38,7 +38,8 @@ namespace Parkeringssimulering
         public Car(int id, Parkingspot destination, ParkingQueue arrivalFrom, int timeOfCreation)
         {
             this.id = id;
-            Destination = destination;
+            this.Destination = destination;
+            originalDestination = destination;
             this.arrivalFrom = arrivalFrom;
             this.timeOfCreation = timeOfCreation;
             this.timeOfQueuing = timeOfCreation;
@@ -63,6 +64,11 @@ namespace Parkeringssimulering
         {
             this.timeOfQueuing = timeOfQueuing;
         }
+        public void setDestination(Parkingspot ps)
+        {
+            this.Destination = ps;
+        }
+
 
     }
 }
