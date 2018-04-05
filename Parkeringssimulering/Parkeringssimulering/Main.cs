@@ -817,17 +817,7 @@ namespace Parkeringssimulering
             }
             //Simulation ended
             printTotalParkingInfo(parkingspotArray);
-            Console.WriteLine("Biler inn til Kiwi: " + Kiwi);
-            Console.WriteLine("Biler inn til Inspiria: " + Inspiria);
-            Console.WriteLine("Biler inn til InspiriaBak: " + InspiriaBak);
-            Console.WriteLine("Biler inn til Superland: " + Superland);
-            Console.WriteLine("Biler inn til Quality: " + Quality);
-            Console.WriteLine("Biler inn til Politi: " + Politi);
-            Console.WriteLine("Biler inn til Caverion: " + Caverion);
-            Console.WriteLine("Biler inn til K5: " + K5);
-            Console.WriteLine("Biler inn til TuneSenter: " + TuneSenter);
-            Console.WriteLine("Biler inn til AdeccoAndIf: " + AdeccoAndIf);
-            Console.WriteLine("Biler inn til Fagforbundet: " + Fagforbundet);
+
             Console.ReadKey();
 
         }
@@ -1215,83 +1205,19 @@ namespace Parkeringssimulering
             Console.WriteLine("Totalt antall parkeringsplasser:          " + maxParkingspots);
             Console.WriteLine("Totalt antall opptatte parkeringsplasser: " + takenSpaces);
             Console.WriteLine("Totalt antall ledige parkeringsplasser:   " + (maxParkingspots - takenSpaces));
+            Console.WriteLine("Total cars made: " + totalAmountOfCars);
             Console.WriteLine();
-        }
-        private static void checkCarsMade(ParkingQueue[] parkingQueues)
-        {
-            int Inspiria = 0;
-            int InspiriaBak = 0;
-            int Superland = 0;
-            int Quality = 0;
-            int Kiwi = 0;
-            int Politi = 0;
-            int Caverion = 0;
-            int K5 = 0;
-            int TuneSenter = 0;
-            int AdeccoAndIf = 0;
-            int Fagforbundet = 0;
-            foreach(ParkingQueue p in parkingQueues)
-            {
-                foreach(Car c in p.carsInQueue)
-                {
-                    if(c.Destination.name == "Inspiria")
-                    {
-                        Inspiria++;
-                    }
-                    if (c.Destination.name == "Inspiria Bak")
-                    {
-                        InspiriaBak++;
-                    }
-                    if (c.Destination.name == "Superland")
-                    {
-                        Superland++;
-                    }
-                    if (c.Destination.name == "Quality Hotell")
-                    {
-                        Quality++;
-                    }
-                    if (c.Destination.name == "Kiwi")
-                    {
-                        Kiwi++;
-                    }
-                    if (c.Destination.name == "Politihuset")
-                    {
-                        Politi++;
-                    }
-                    if (c.Destination.name == "Caverion")
-                    {
-                        Caverion++;
-                    }
-                    if (c.Destination.name == "K5")
-                    {
-                        K5++;
-                    }
-                    if (c.Destination.name == "Tune Senter")
-                    {
-                        TuneSenter++;
-                    }
-                    if (c.Destination.name == "Adecco and If")
-                    {
-                        AdeccoAndIf++;
-                    }
-                    if (c.Destination.name == "Fagforbundet")
-                    {
-                        Fagforbundet++;
-                    }
-                }
-
-            }
-            Console.WriteLine("Cars going to Inspiria: " + Inspiria);
-            Console.WriteLine("Cars going to Inspiria: " + InspiriaBak);
-            Console.WriteLine("Cars going to Inspiria: " + Superland);
-            Console.WriteLine("Cars going to Inspiria: " + Quality);
-            Console.WriteLine("Cars going to Inspiria: " + Kiwi);
-            Console.WriteLine("Cars going to Inspiria: " + Politi);
-            Console.WriteLine("Cars going to Inspiria: " + Caverion);
-            Console.WriteLine("Cars going to Inspiria: " + K5);
-            Console.WriteLine("Cars going to Inspiria: " + TuneSenter);
-            Console.WriteLine("Cars going to Inspiria: " + AdeccoAndIf);
-            Console.WriteLine("Cars going to Inspiria: " + Fagforbundet);
+            Console.WriteLine("Biler inn til Inspiria: " + Inspiria);
+            Console.WriteLine("Biler inn til InspiriaBak: " + InspiriaBak);
+            Console.WriteLine("Biler inn til Superland: " + Superland);
+            Console.WriteLine("Biler inn til Quality: " + Quality);
+            Console.WriteLine("Biler inn til Kiwi: " + Kiwi);
+            Console.WriteLine("Biler inn til Politi: " + Politi);
+            Console.WriteLine("Biler inn til Caverion: " + Caverion);
+            Console.WriteLine("Biler inn til K5: " + K5);
+            Console.WriteLine("Biler inn til TuneSenter: " + TuneSenter);
+            Console.WriteLine("Biler inn til AdeccoAndIf: " + AdeccoAndIf);
+            Console.WriteLine("Biler inn til Fagforbundet: " + Fagforbundet);
         }
     }
 }
