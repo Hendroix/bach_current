@@ -478,8 +478,16 @@ namespace Parkeringssimulering
                         {
                             c.setTimeofParking(currentSimTime);
                             Parkingspot ps = c.Destination;
+                            //Til Kiwi
+                            if (ps.name == kiwi.name && ps.Free())
+                            {
+                                pq.carsInQueue.Dequeue();
+                                ps.listOfCars.Add(c);
+                                c.setTimeOfQueuing(currentSimTime + 1);
+                                Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
                             //Til sykehusveien
-                            if (sykehusVeienNorth.checkIfFree() == true)
+                            else if (sykehusVeienNorth.checkIfFree() == true)
                             {
                                 pq.carsInQueue.Dequeue();
                                 sykehusVeienNorth.carsInQueue.Enqueue(c);
