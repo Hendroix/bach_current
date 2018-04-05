@@ -39,7 +39,6 @@ namespace Parkeringssimulering
         {
             this.id = id;
             this.Destination = destination;
-            originalDestination = destination;
             this.arrivalFrom = arrivalFrom;
             this.timeOfCreation = timeOfCreation;
             this.timeOfQueuing = timeOfCreation;
@@ -66,6 +65,7 @@ namespace Parkeringssimulering
         }
         public void setDestination(Parkingspot ps)
         {
+            originalDestination = Destination;
             this.Destination = ps;
         }
 

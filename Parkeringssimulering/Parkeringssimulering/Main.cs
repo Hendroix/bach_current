@@ -107,10 +107,10 @@ namespace Parkeringssimulering
             //Defines the starting criterias
             currentSimTime = 0;
             finalSimTime = 1080;
-            delaySleepTime = 100;
+            delaySleepTime = 1;
             currentlyMade = 0;
             //Un comment this for a shit tun of cars to arrive
-            //totalAmountOfCars = -2000;
+            totalAmountOfCars = -2000;
             generateRandomNumbers();
             //Start of While simulation loop
             while (currentSimTime <= finalSimTime)
@@ -401,6 +401,11 @@ namespace Parkeringssimulering
                                 c.setTimeOfQueuing(currentSimTime + 1);
                                 Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
                             }
+                            else if (ps.name == kiwi.name && !ps.Free())
+                            {
+                                c.setDestination(quality);
+                                Console.WriteLine(c.id + " Skal til ->" + c.originalDestination + "Men er fult, parkerer på " + c.Destination + " isteden.");
+                            }
                             else if (tuneVeienNorth_1.checkIfFree() == true)
                             {
                                 pq.carsInQueue.Dequeue();
@@ -528,6 +533,12 @@ namespace Parkeringssimulering
                                 ps.listOfCars.Add(c);
                                 c.setTimeOfQueuing(currentSimTime + 1);
                                 Console.WriteLine("Bil " + c.id + " Har parkert på " + ps.name + ", her er det " + ps.getTakenSpaces() + "/" + ps.totalParkingSpaces);
+                            }
+                            //Om Superland er fult
+                            else if (ps.name == superland.name && !ps.Free())
+                            {
+                                c.setDestination(quality);
+                                Console.WriteLine(c.id + " Skal til ->" + c.originalDestination.name + "Men er fult, parkerer på " + c.Destination.name + " isteden.");
                             }
                             //Til If og Adecco
                             else if (ps.name == adeccoAndIf.name && ps.Free())
@@ -1238,6 +1249,13 @@ namespace Parkeringssimulering
             foreach (ParkingQueue queue in pq)
             {
                 Console.WriteLine(queue.name + "  Biler i min kø: " + queue.carsInQueue.Count);
+                if (queue.carsInQueue.Count > 0)
+                {
+                    foreach (Car c in queue.carsInQueue)
+                    {
+                        Console.WriteLine("Car: " + c.id + " Destination: " + c.Destination.name);
+                    }
+                }
             }
 
         }
