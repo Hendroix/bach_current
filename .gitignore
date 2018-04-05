@@ -9,3 +9,6 @@ Parkeringssimulering/.vs/Parkeringssimulering/v15/.suo
 # Visual Studio 2015/2017 cache/options directory
 *.vs/
 *.ide
+*.lock
+*.cache
+*.cache
